@@ -1,0 +1,121 @@
+---
+import { MusicCarousel } from "../components/MusicCarousel.jsx"; // Asegúrate de que existe en tu proyecto
+import { repertoire, genres } from "../data/data";
+---
+
+<section
+  class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden"
+  id="repertoire-section"
+  data-active-genre="salsa"
+>
+  <!-- Efectos de fondo -->
+  <div
+    class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,165,0,0.2),transparent_50%)]"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <h2
+      class="text-4xl md:text-5xl font-serif text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 animate-gradient"
+    >
+      Nuestro Repertorio
+    </h2>
+
+    <!-- Navegación de géneros -->
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      {
+        genres.map((genre) => (
+          <button
+            class="px-6 py-3 rounded-full transition-all duration-300 text-lg font-medium genre-button"
+            data-genre={genre.id}
+          >
+            {genre.name}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Carrusel de canciones -->
+    <div class="relative">
+      <!-- Efecto de resplandor en los bordes -->
+      <div
+        class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black to-transparent z-10"
+      >
+      </div>
+      <div
+        class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10"
+      >
+      </div>
+
+      <!-- Carrusel (React Component) -->
+      <MusicCarousel
+        songs={repertoire["salsa"]}
+        className="px-10"
+        client:load
+      />
+    </div>
+
+    <!-- Texto descriptivo -->
+    <p class="text-center text-gray-400 mt-8 max-w-2xl mx-auto">
+      Nuestro extenso repertorio abarca los mejores clásicos y éxitos
+      contemporáneos de la música latina. Adaptamos nuestras interpretaciones al
+      estilo y ambiente de su evento.
+    </p>
+  </div>
+</section>
+
+<!-- JavaScript para manejar cambios de género -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".genre-button");
+    const section = document.getElementById("repertoire-section");
+    const carousel = document.getElementById("music-carousel");
+
+    buttons.forEach((button) => {
+      if (
+        section?.getAttribute("data-active-genre") ===
+        button.getAttribute("data-genre")
+      ) {
+        button.classList.add(
+          "bg-gradient-to-r",
+          "from-yellow-400",
+          "via-orange-500",
+          "to-red-500",
+          "text-white",
+          "shadow-lg",
+          "shadow-orange-500/25",
+        );
+      }
+
+      button.addEventListener("click", function () {
+        const selectedGenre = this.getAttribute("data-genre");
+
+        // Cambiar el estado del género activo
+        section?.setAttribute("data-active-genre", selectedGenre);
+        carousel?.setAttribute("data-genre", selectedGenre);
+
+        // Actualizar la apariencia de los botones
+        buttons.forEach((btn) =>
+          btn.classList.remove(
+            "bg-gradient-to-r",
+            "from-yellow-400",
+            "via-orange-500",
+            "to-red-500",
+            "text-white",
+            "shadow-lg",
+            "shadow-orange-500/25",
+          ),
+        );
+        this.classList.add(
+          "bg-gradient-to-r",
+          "from-yellow-400",
+          "via-orange-500",
+          "to-red-500",
+          "text-white",
+          "shadow-lg",
+          "shadow-orange-500/25",
+        );
+      });
+    });
+  });
+</script>

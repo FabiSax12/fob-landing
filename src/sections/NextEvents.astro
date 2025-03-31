@@ -1,0 +1,19 @@
+---
+import { events } from "@/data/data";
+import { EventCard } from "../components/EventCard";
+---
+
+<section
+  class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden"
+>
+  <div class="container mx-auto px-4 relative z-10">
+    <h2
+      class="text-4xl md:text-5xl font-serif text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 animate-gradient"
+    >
+      Próximos Eventos
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {events.map((event, index) => <EventCard client:load {...event} />)}
+    </div>
+  </div>
+</section>
