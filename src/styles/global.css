@@ -37,7 +37,7 @@
   --bg-gradient-radial: radial-gradient(var(--tw-gradient-stops));
 
   /* Animations */
-  --animate-float: float 6s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
   --animate-float-slow: float 8s ease-in-out infinite;
   --animate-float-delayed: float 6s ease-in-out 2s infinite;
   --animate-gradient: gradient 8s ease infinite;
@@ -50,7 +50,7 @@
     }
 
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-30px);
     }
   }
 
