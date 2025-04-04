@@ -1,7 +1,6 @@
 export const events = [
-  { date: "15 Mar", name: "Boda Exclusiva", location: "Ciudad Quesada" },
-  { date: "29 Mar", name: "Gala", location: "Hotel Los Lagos, Fortuna" },
-  { date: "31 Dic", name: "Cena año nuevo", location: "Hotel el Tucano, La palmera" },
+  { date: "2025-03-30", name: "Club de Leones", location: "Hotel Los Lagos, Fortuna" },
+  { date: "2025-05-11", name: "Evento Municipalidad", location: "Ciudad Quesada" },
 ];
 
 export const repertoire = {
