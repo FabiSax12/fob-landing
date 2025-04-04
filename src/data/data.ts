@@ -1,7 +1,6 @@
 export const events = [
-  { date: "15 Mar", name: "Boda Exclusiva", location: "Ciudad Quesada" },
-  { date: "29 Mar", name: "Gala", location: "Hotel Los Lagos, Fortuna" },
-  { date: "31 Dic", name: "Cena año nuevo", location: "Hotel el Tucano, La palmera" },
+  { date: "2025-03-30", name: "Club de Leones", location: "Hotel Los Lagos, Fortuna" },
+  { date: "2025-05-11", name: "Evento Municipalidad", location: "Ciudad Quesada" },
 ];
 
 export const repertoire = {
@@ -62,92 +61,79 @@ export const members = [
   {
     name: "Julio Salas",
     instrument: "Director y Piano",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Carlos+Hover",
+    image: "/integrantes/julio-salas_landscape.jpg",
     bio: "Maestro del piano con más de 20 años de experiencia en la música latina. Julio lidera la orquesta con pasión y precisión.",
   },
   {
     name: "Aylin Salas",
     instrument: "Voz",
     image: "/integrantes/aylin-salas.jpg",
-    hoverImage: "/integrantes/aylin-salas.jpg",
     bio: "Biografía de "
   },
   {
     name: "Keylin Mora",
     instrument: "Voz",
     image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
     bio: "Biografía de Keylin Mora"
   },
   {
     name: "Anthony Lumbi",
     instrument: "Voz",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
+    image: "/integrantes/anthony-lumbi_landscape.jpg",
     bio: "Biografía de Anthony Lumbi"
   },
   {
     name: "Tomás Vásquez",
     instrument: "Bajo",
     image: "/integrantes/tomas-vasquez.PNG",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
     bio: "Biografía de Tomás Vásquez"
   },
   {
     name: "Amy Pérez",
     instrument: "Sax Alto",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
+    image: "/integrantes/amy-perez_landscape.jpg",
     bio: "Biografía de Amy Pérez",
   },
   {
     name: "Fabián Vargas",
     instrument: "Sax Alto",
     image: "/integrantes/fabian-vargas.jpg",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
     bio: "Biografía de Fabián Vargas",
   },
   {
     name: "Erick Piedra",
     instrument: "Sax Tenor",
     image: "/integrantes/erick-piedra.jpg",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Ana+Hover",
     bio: "Biografía de Erick Piedra",
   },
   {
     name: "Mauricio (Coco)",
     instrument: "Trompeta",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Juan+Hover",
+    image: "/integrantes/mauricio-coco_landscape.jpg",
     bio: "Biografía de Mauricio (Coco)",
   },
   {
     name: "Johan Román",
     instrument: "Trombón",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Maria+Hover",
+    image: "/integrantes/johan-roman_landscape.jpg",
     bio: "Biografía de Johan Román",
   },
   {
     name: "Joseph Barquero",
     instrument: "Timbales",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
+    image: "/integrantes/joseph-barquero_landscape.jpg",
     bio: "Biografía de Joseph Barquero",
   },
   {
     name: "Kike Obando",
     instrument: "Congas",
-    image: "/integrantes/kike-obando.png",
-    hoverImage: "/integrantes/kike-obando.png",
+    image: "/integrantes/kike-obando_landscape.png",
     bio: "Biografía de Kike Obando"
   },
   {
     name: "Jairo Huertas",
     instrument: "Percusión Menor",
-    image: "/placeholder.svg?height=400&width=300",
-    hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
+    image: "/integrantes/jairo-huertas_landscape.jpg",
     bio: "Biografía de Jairo Huertas"
   }
 ];
