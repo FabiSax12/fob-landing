@@ -62,7 +62,7 @@ export const members = [
   {
     name: "Julio Salas",
     instrument: "Director y Piano",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/integrantes/julio-salas_landscape.jpg",
     hoverImage: "/placeholder.svg?height=400&width=300&text=Carlos+Hover",
     bio: "Maestro del piano con más de 20 años de experiencia en la música latina. Julio lidera la orquesta con pasión y precisión.",
   },
@@ -83,7 +83,7 @@ export const members = [
   {
     name: "Anthony Lumbi",
     instrument: "Voz",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/integrantes/anthony-lumbi_landscape.jpg",
     hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
     bio: "Biografía de Anthony Lumbi"
   },
@@ -97,7 +97,7 @@ export const members = [
   {
     name: "Amy Pérez",
     instrument: "Sax Alto",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/integrantes/amy-perez_landscape.jpg",
     hoverImage: "/placeholder.svg?height=400&width=300&text=Pedro+Hover",
     bio: "Biografía de Amy Pérez",
   },
@@ -118,7 +118,7 @@ export const members = [
   {
     name: "Mauricio (Coco)",
     instrument: "Trompeta",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/integrantes/mauricio-coco_landscape.jpg",
     hoverImage: "/placeholder.svg?height=400&width=300&text=Juan+Hover",
     bio: "Biografía de Mauricio (Coco)",
   },
@@ -139,7 +139,7 @@ export const members = [
   {
     name: "Kike Obando",
     instrument: "Congas",
-    image: "/integrantes/kike-obando.png",
+    image: "/integrantes/kike-obando_landscape.png",
     hoverImage: "/integrantes/kike-obando.png",
     bio: "Biografía de Kike Obando"
   },
