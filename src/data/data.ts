@@ -1,6 +1,30 @@
-export const events = [
-  { date: "2025-03-30", name: "Club de Leones", location: "Hotel Los Lagos, Fortuna" },
-  { date: "2025-05-11", name: "Evento Municipalidad", location: "Ciudad Quesada" },
+import type { Event } from "@/types/envent";
+
+export const events: Event[] = [
+  {
+    date: "2025-03-30",
+    name: "Club de Leones",
+    location: {
+      name: "Hotel Los Lagos, Fortuna",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2774.087995641989!2d-84.68551615431903!3d10.48860670956378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00bff8ce363a5%3A0xc0307c4b2ffbe274!2sHotel%20Los%20Lagos%20Spa%20%26%20Resort!5e0!3m2!1ses!2scr!4v1744141964474!5m2!1ses!2scr"
+    },
+    type: "Privado",
+    description: "Evento privado organizado por el Club de Leones de Costa Rica.",
+    time: {
+      start: "19:00",
+      concert: "20:00"
+    }
+  },
+  {
+    date: "2025-05-11",
+    name: "Evento Municipalidad",
+    location: {
+      name: "Ciudad Quesada",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1650.3551580010994!2d-84.43044642417614!3d10.32365349676287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f323684131%3A0x6717ec5665e83bc7!2sParque%20de%20Ciudad%20Quesada!5e0!3m2!1ses!2scr!4v1744169853346!5m2!1ses!2scr"
+    },
+    type: "Publico",
+    description: "Evento organizado por la Municipalidad de San Carlos.",
+  },
 ];
 
 export const repertoire = {
