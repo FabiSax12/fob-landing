@@ -1,11 +1,8 @@
+import type { Event } from "@/types/envent";
 import { Card, CardContent } from "./ui/card";
 import { Calendar, MapPin } from "lucide-react";
 
-interface Props {
-  date: string; // Fecha en formato ISO o similar
-  name: string;
-  location: string;
-}
+interface Props extends Pick<Event, "date" | "name" | "location"> { }
 
 export const EventCard = ({ date, name, location }: Props) => {
   const eventDate = new Date(date);
@@ -42,7 +39,7 @@ export const EventCard = ({ date, name, location }: Props) => {
         <div className="flex items-center text-gray-400 mb-4">
           {/* <Icon className="w-4 h-4 mr-2" name="lucide--map-pin" /> */}
           <MapPin className="w-4 h-4 mr-2" />
-          <p className="text-lg">{location}</p>
+          <p className="text-lg">{location.name}</p>
         </div>
         {hasEventPassed && (
           <p className="text-sm text-red-500 font-medium absolute right-3 bottom-3">
