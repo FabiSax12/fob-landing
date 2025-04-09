@@ -1,0 +1,16 @@
+---
+import { cn } from "@/lib/utils";
+
+const { className, isLong = false, isAnimated = false } = Astro.props;
+---
+
+<span
+  class={cn(
+    "text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 transition-colors",
+    isLong ? "via-orange-500 to-red-500" : "",
+    isAnimated ? "animate-gradient" : "",
+    className,
+  )}
+>
+  <slot />
+</span>

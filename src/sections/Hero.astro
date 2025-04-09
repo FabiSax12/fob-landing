@@ -1,5 +1,6 @@
 ---
-import { Card, CardContent } from "@/components/ui/card";
+import TextGradient from "@/components/ui/TextGradient.astro";
+import ThemedButton from "@/components/ui/ThemedButton.astro";
 import { Image } from "astro:assets";
 ---
 
@@ -22,105 +23,20 @@ import { Image } from "astro:assets";
       width={800}
       height={400}
       class="mx-auto animate-float"
+      loading={"eager"}
     />
-    <p
-      class="text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 font-light mt-8 mb-12 text-center animate-gradient"
-    >
-      Creando momentos inolvidables a través de la música
+    <p class="text-2xl md:text-3xl mt-8 mb-12 text-center">
+      <TextGradient isLong isAnimated className="font-light">
+        Creando momentos inolvidables a través de la música
+      </TextGradient>
     </p>
-    <!-- <button
-      class=`
-        inline-flex items-center justify-center gap-2 whitespace-nowrap font-bold ring-offset-background
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-        disabled:pointer-events-none disabled:opacity-50 bg-white hover:bg-primary/90 h-11 rounded-md text-xl px-8 py-6
-        bg-gradient-to-r from-yellow-400/90 via-orange-500/90 to-red-500/90 text-black
-        hover:-translate-y-2 transition-all duration-300 shadow-lg hover:shadow-orange-500/50 cursor-pointer
-      `
-    >
-      Reservar Ahora
-    </button> -->
 
-    <button
-      class="inline-flex items-center justify-center h-11 rounded-md text-xl px-8 py-6 group relative overflow-hidden bg-zinc-900/50 backdrop-blur-sm border border-orange-500/10 hover:border-orange-500/50 transition-all duration-500 cursor-pointer"
-    >
-      <span
-        class="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 group-hover:text-orange-400 transition-colors"
+    <ThemedButton>
+      <TextGradient
+        className="text-xl font-semibold group-hover:text-orange-400"
       >
-        Reservar Ahora
-      </span>
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-      >
-      </div>
-      {
-        /* <h3 class="text-2xl font-semibold mb-2 text-white group-hover:text-orange-400 transition-colors"></h3> */
-      }
-    </button>
-
-    <!-- <div
-      class="mx-auto h-16 flex items-center justify-center absolute bottom-0"
-    >
-      <span
-        class="flex flex-col w-4 text-orange-500 space-y-2 animate-bounce-slow m-0"
-      >
-        <svg
-          viewBox="0 -4.5 20 20"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          class="animate-float-delayed delay-300"
-          ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-            <defs> </defs>
-            <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
-              <g
-                id="Dribbble-Light-Preview"
-                transform="translate(-220.000000, -6684.000000)"
-                fill="currentColor"
-              >
-                <g id="icons" transform="translate(56.000000, 160.000000)">
-                  <path
-                    d="M164.292308,6524.36583 L164.292308,6524.36583 C163.902564,6524.77071 163.902564,6525.42619 164.292308,6525.83004 L172.555873,6534.39267 C173.33636,6535.20244 174.602528,6535.20244 175.383014,6534.39267 L183.70754,6525.76791 C184.093286,6525.36716 184.098283,6524.71997 183.717533,6524.31405 C183.328789,6523.89985 182.68821,6523.89467 182.29347,6524.30266 L174.676479,6532.19636 C174.285736,6532.60124 173.653152,6532.60124 173.262409,6532.19636 L165.705379,6524.36583 C165.315635,6523.96094 164.683051,6523.96094 164.292308,6524.36583"
-                    id="arrow_down-[#338]"
-                  >
-                  </path>
-                </g>
-              </g>
-            </g>
-          </g>
-        </svg>
-
-        <svg
-          viewBox="0 -4.5 20 20"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          class="animate-float-delayed delay-300"
-          ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
-            <defs> </defs>
-            <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
-              <g
-                id="Dribbble-Light-Preview"
-                transform="translate(-220.000000, -6684.000000)"
-                fill="currentColor"
-              >
-                <g id="icons" transform="translate(56.000000, 160.000000)">
-                  <path
-                    d="M164.292308,6524.36583 L164.292308,6524.36583 C163.902564,6524.77071 163.902564,6525.42619 164.292308,6525.83004 L172.555873,6534.39267 C173.33636,6535.20244 174.602528,6535.20244 175.383014,6534.39267 L183.70754,6525.76791 C184.093286,6525.36716 184.098283,6524.71997 183.717533,6524.31405 C183.328789,6523.89985 182.68821,6523.89467 182.29347,6524.30266 L174.676479,6532.19636 C174.285736,6532.60124 173.653152,6532.60124 173.262409,6532.19636 L165.705379,6524.36583 C165.315635,6523.96094 164.683051,6523.96094 164.292308,6524.36583"
-                    id="arrow_down-[#338]"
-                  >
-                  </path>
-                </g>
-              </g>
-            </g>
-          </g>
-        </svg>
-      </span>
-    </div> -->
+        Contáctanos
+      </TextGradient>
+    </ThemedButton>
   </div>
 </section>

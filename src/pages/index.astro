@@ -1,16 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Image from "astro/components/Image.astro";
-import { RepertoireSection } from "@/sections/RepertoireSection.tsx";
-import BandMemberCard from "@/components/BandMemberCard.astro";
-import { EventCard } from "@/components/EventCard";
-
-import { events, members } from "../data/data";
-import { ReviewsSection } from "@/sections/Reviews";
+import RepertoireSection from "@/sections/RepertoireSection.astro";
+import ReviewsSection from "@/sections/Reviews.astro";
 import Hero from "@/sections/Hero.astro";
 import NextEvents from "@/sections/NextEvents.astro";
 import Musicians from "@/sections/Musicians.astro";
-import Repertoire from "@/sections/Repertoire.astro";
 ---
 
 <Layout>
@@ -18,9 +12,7 @@ import Repertoire from "@/sections/Repertoire.astro";
 		<Hero />
 		<NextEvents />
 		<Musicians />
-		<!-- <Repertoire /> -->
-		<!-- They are React components because needs the Carousel component -->
-		<RepertoireSection client:visible />
-		<ReviewsSection client:visible />
+		<RepertoireSection />
+		<ReviewsSection />
 	</main>
 </Layout>
