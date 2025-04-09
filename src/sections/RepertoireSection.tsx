@@ -25,14 +25,39 @@ export function RepertoireSection() {
               key={genre.id}
               onClick={() => setActiveGenre(genre.id)}
               className={cn(
-                "px-6 py-3 rounded-full transition-all duration-300 text-lg font-medium",
+                "relative px-6 py-3 rounded-full transition-all duration-300 text-lg font-medium border border-orange-500/10 cursor-pointer",
                 activeGenre === genre.id
-                  ? "bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/25"
-                  : "bg-zinc-900/50 text-gray-400 hover:text-white hover:bg-zinc-800/50",
+                  ? "border-orange-500/50 -translate-y-3"
+                  : "text-white",
               )}
             >
-              {genre.name}
+              <span
+                className={cn(
+                  "font-semibold transition-colors",
+                  activeGenre === genre.id
+                    ? "text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 group-hover:text-orange-400"
+                    : "text-gray-400 hover:text-white"
+                )}
+              >
+                {genre.name}
+              </span>
+              <div
+                className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              >
+              </div>
             </button>
+            // <button
+            //   key={genre.id}
+            //   onClick={() => setActiveGenre(genre.id)}
+            //   className={cn(
+            //     "px-6 py-3 rounded-full transition-all duration-300 text-lg font-medium",
+            //     activeGenre === genre.id
+            //       ? "bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/25 -translate-y-3"
+            //       : "bg-zinc-900/50 text-gray-400 hover:text-white hover:bg-zinc-800/50",
+            //   )}
+            // >
+            //   {genre.name}
+            // </button>
           ))}
         </div>
 

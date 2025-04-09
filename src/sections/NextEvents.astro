@@ -13,7 +13,13 @@ import { EventCard } from "../components/EventCard";
       Próximos Eventos
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {events.map((event, index) => <EventCard client:load {...event} />)}
+      {
+        events.map((event, index) => (
+          <a href={`/evento/${event.name}`}>
+            <EventCard client:load {...event} />
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

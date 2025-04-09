@@ -1,52 +1,90 @@
-export const events = [
-  { date: "2025-03-30", name: "Club de Leones", location: "Hotel Los Lagos, Fortuna" },
-  { date: "2025-05-11", name: "Evento Municipalidad", location: "Ciudad Quesada" },
+import type { Event } from "@/types/envent";
+
+export const events: Event[] = [
+  {
+    date: "2025-03-30",
+    name: "Club de Leones",
+    location: {
+      name: "Hotel Los Lagos, Fortuna",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2774.087995641989!2d-84.68551615431903!3d10.48860670956378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa00bff8ce363a5%3A0xc0307c4b2ffbe274!2sHotel%20Los%20Lagos%20Spa%20%26%20Resort!5e0!3m2!1ses!2scr!4v1744141964474!5m2!1ses!2scr"
+    },
+    type: "Privado",
+    description: "Evento privado organizado por el Club de Leones de Costa Rica.",
+    time: {
+      start: "19:00",
+      concert: "20:00"
+    }
+  },
+  {
+    date: "2025-05-11",
+    name: "Evento Municipalidad",
+    location: {
+      name: "Ciudad Quesada",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1650.3551580010994!2d-84.43044642417614!3d10.32365349676287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f323684131%3A0x6717ec5665e83bc7!2sParque%20de%20Ciudad%20Quesada!5e0!3m2!1ses!2scr!4v1744169853346!5m2!1ses!2scr"
+    },
+    type: "Publico",
+    description: "Evento organizado por la Municipalidad de San Carlos.",
+  },
 ];
 
 export const repertoire = {
   salsa: [
-    { title: "Llorarás", artist: "Oscar D'León" },
-    { title: "Pedro Navaja", artist: "Rubén Blades" },
-    { title: "Vivir Mi Vida", artist: "Marc Anthony" },
-    { title: "Idilio", artist: "Willie Colón" },
-    { title: "Mi Gente", artist: "Héctor Lavoe" },
+    { title: "Deseandote", artist: "Frankie Ruiz" },
+    { title: "Sin salsa no hay paraiso", artist: "El Gran Combo de Puerto Rico" },
+    { title: "Que locura enamorarme de ti", artist: "Eddie Santiago" },
+    { title: "Casi te envidio", artist: "Andy Montañez" },
+    { title: "La noche mas linda", artist: "Adalberto Santiago" },
+    { title: "Tu cariñito", artist: "Luisito Ayala y La Puerto Rican Power" },
+    { title: "Como te hago entender", artist: "Roberto Roena" },
+    { title: "De mi enamorate", artist: "Zarella" },
   ],
   merengue: [
-    { title: "Suavemente", artist: "Elvis Crespo" },
-    { title: "El Africano", artist: "Wilfrido Vargas" },
-    { title: "La Bilirrubina", artist: "Juan Luis Guerra" },
-    { title: "El Baile del Perrito", artist: "Wilfrido Vargas" },
-    { title: "La Vaca", artist: "Mala Fe" },
+    { title: "Yo me siento enamorado", artist: "Josie Esteban" },
+    { title: "Que loco", artist: "Grupo Mania" },
+    { title: "Agua de coco", artist: "Jossie Esteban" },
+    { title: "Morena ven", artist: "Los Hermanos Rosario" },
+    { title: "Es mentiroso", artist: "Olga Tañón" },
+    { title: "Rompecintura", artist: "Los Hermanos Rosario" },
+    { title: "Nuestra canción", artist: "Elvis Crespo" },
+    { title: "Nadie se muere", artist: "La Makina" }
   ],
   cumbia: [
-    { title: "Oye Mi Amor", artist: "Los Ángeles Azules" },
-    { title: "La Pollera Colorá", artist: "Pedro Salcedo" },
-    { title: "El Pescador", artist: "Totó la Momposina" },
-    { title: "Mi Cucu", artist: "La Sonora Dinamita" },
-    { title: "Que Nadie Sepa Mi Sufrir", artist: "Los Mirlos" },
+    { title: "Que bello", artist: "La Sonora Dinamita" },
+    { title: "Nunca es suficiente", artist: "Los Ángeles Azules" },
+    { title: "Pedacito de mi vida", artist: "La Sonora Santanera, Matisse" },
+    { title: "Golpe con golpe", artist: "Pastor Lopez" },
+    { title: "Cumbia caletera", artist: "Billo's Caracas Boys" },
+    { title: "Plegaria vallenata", artist: "Pastor Lopez" },
+    { title: "Magdalena", artist: "Rigo Dominguez y Su Grupo Audaz" },
+    { title: "Talento de TV", artist: "Willie Colón" },
+    { title: "Encontré la cadenita", artist: "Las Sonora Dinamita" },
+    { title: "Juana la cubana", artist: "Fito Olivares" },
+    { title: "Se me perdió la cadenita", artist: "Las Sonora Dinamita" },
+    { title: "Caleñas", artist: "Pastor Lopez" },
+    { title: "Tiene espinas el rosal", artist: "Grupo Cañaveral" },
+    { title: "La parabólica", artist: "La Sonora Dinamita" },
+    { title: "Mil horas", artist: "La Sonora Dinamita" },
+    { title: "Amaneciendo", artist: "Adolfo Echeverria" }
   ],
   bolero: [
-    { title: "Bésame Mucho", artist: "Lucho Gatica" },
-    { title: "Sabor a Mí", artist: "Los Panchos" },
-    { title: "Sin Ti", artist: "Los Tres Ases" },
-    { title: "Perfidia", artist: "Los Tres Diamantes" },
-    { title: "Amor Eterno", artist: "Rocío Dúrcal" },
+    { title: "Perfume de gardenias", artist: "La Sonora Santanera" },
+    { title: "Conversación en tiempo de bolero", artist: "Vicentico Valdés" },
+    { title: "Urge", artist: "La Sonora Santanera" },
+    { title: "Mi buen amor", artist: "Gloria Estefan" }
   ],
   bachata: [
-    { title: "Propuesta Indecente", artist: "Romeo Santos" },
-    { title: "Obsesión", artist: "Aventura" },
-    { title: "Por Un Segundo", artist: "Aventura" },
-    { title: "Darte Un Beso", artist: "Prince Royce" },
-    { title: "Stand By Me", artist: "Prince Royce" },
+    { title: "Hoy lo vi pasar", artist: "?" },
+    { title: "Quizás sí, quizás no", artist: "Los Toros Band" },
+    { title: "La bachata", artist: "Manuel Turizo" },
+    { title: "Bailando dos corazones", artist: "Chayanne" },
   ],
   "paso-doble": [
-    { title: "España Cañí", artist: "Pascual Marquina" },
-    { title: "Gallito", artist: "José Franco" },
-    { title: "El Gato Montés", artist: "Manuel Penella" },
-    { title: "Suspiros de España", artist: "Antonio Álvarez Alonso" },
-    { title: "La Entrada de los Gladiadores", artist: "Julius Fučík" },
+    { title: "Bomboro", artist: "La Sonora Santanera" },
+    { title: "Pena negra", artist: "La Sonora Santanera" },
+    { title: "El beso", artist: "Los Churumbeles de España" }
   ]
-}
+};
+
 
 export const genres = [
   { id: "salsa", name: "Salsa" },
@@ -62,79 +100,66 @@ export const members = [
     name: "Julio Salas",
     instrument: "Director y Piano",
     image: "/integrantes/julio-salas_landscape.jpg",
-    bio: "Maestro del piano con más de 20 años de experiencia en la música latina. Julio lidera la orquesta con pasión y precisión.",
   },
   {
     name: "Aylin Salas",
     instrument: "Voz",
     image: "/integrantes/aylin-salas.jpg",
-    bio: "Biografía de "
   },
   {
     name: "Keylin Mora",
     instrument: "Voz",
     image: "/placeholder.svg?height=400&width=300",
-    bio: "Biografía de Keylin Mora"
   },
   {
     name: "Anthony Lumbi",
     instrument: "Voz",
     image: "/integrantes/anthony-lumbi_landscape.jpg",
-    bio: "Biografía de Anthony Lumbi"
   },
   {
     name: "Tomás Vásquez",
     instrument: "Bajo",
     image: "/integrantes/tomas-vasquez.PNG",
-    bio: "Biografía de Tomás Vásquez"
   },
   {
     name: "Amy Pérez",
     instrument: "Sax Alto",
     image: "/integrantes/amy-perez_landscape.jpg",
-    bio: "Biografía de Amy Pérez",
   },
   {
     name: "Fabián Vargas",
     instrument: "Sax Alto",
     image: "/integrantes/fabian-vargas.jpg",
-    bio: "Biografía de Fabián Vargas",
   },
   {
     name: "Erick Piedra",
     instrument: "Sax Tenor",
     image: "/integrantes/erick-piedra.jpg",
-    bio: "Biografía de Erick Piedra",
   },
   {
     name: "Mauricio (Coco)",
     instrument: "Trompeta",
     image: "/integrantes/mauricio-coco_landscape.jpg",
-    bio: "Biografía de Mauricio (Coco)",
   },
   {
     name: "Johan Román",
     instrument: "Trombón",
     image: "/integrantes/johan-roman_landscape.jpg",
-    bio: "Biografía de Johan Román",
   },
   {
     name: "Joseph Barquero",
     instrument: "Timbales",
     image: "/integrantes/joseph-barquero_landscape.jpg",
-    bio: "Biografía de Joseph Barquero",
   },
   {
     name: "Kike Obando",
     instrument: "Congas",
     image: "/integrantes/kike-obando_landscape.png",
-    bio: "Biografía de Kike Obando"
   },
   {
     name: "Jairo Huertas",
     instrument: "Percusión Menor",
     image: "/integrantes/jairo-huertas_landscape.jpg",
-    bio: "Biografía de Jairo Huertas"
   }
 ];
 

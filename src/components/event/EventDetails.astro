@@ -1,0 +1,61 @@
+---
+import { Calendar, Globe, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import type { Event } from "@/types/envent";
+
+const { event } = Astro.props as { event: Event };
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return new Intl.DateTimeFormat("es-ES", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+};
+---
+
+<div>
+  <h1
+    class="text-4xl md:text-5xl font-serif mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"
+  >
+    {event.name}
+  </h1>
+
+  <div class="flex items-center mb-4 text-gray-300">
+    <Calendar className="w-5 h-5 mr-2 text-orange-400" />
+    <span>{formatDate(event.date)}</span>
+  </div>
+
+  <div class="flex items-center mb-6 text-gray-300">
+    <MapPin className="w-5 h-5 mr-2 text-orange-400" />
+    <span>{event.location.name}</span>
+  </div>
+
+  {
+    event.website && (
+      <div class="flex items-center mb-6 text-gray-300">
+        <Globe className="w-5 h-5 mr-2 text-orange-400" />
+        <a
+          href={event.website}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-orange-400 hover:text-orange-500 transition-colors"
+        >
+          Sitio web del evento
+        </a>
+      </div>
+    )
+  }
+
+  <div class="prose prose-invert max-w-none mb-8">
+    <p class="text-lg text-gray-300">{event.description}</p>
+  </div>
+
+  <!-- <Button
+    className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
+  >
+    Reservar Entradas
+  </Button> -->
+</div>

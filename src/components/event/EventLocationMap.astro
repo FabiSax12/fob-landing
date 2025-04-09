@@ -1,0 +1,22 @@
+---
+const { src } = Astro.props;
+---
+
+<div class="mt-12 w-min mx-auto">
+  <h2
+    class="text-2xl font-serif mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"
+  >
+    Ubicación
+  </h2>
+  <iframe
+    width="600"
+    height="450"
+    style="border:0"
+    class="rounded-3xl"
+    loading="lazy"
+    allowfullscreen
+    referrerpolicy="no-referrer-when-downgrade"
+    src={src}
+  >
+  </iframe>
+</div>
