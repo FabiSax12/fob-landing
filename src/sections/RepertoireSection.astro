@@ -1,0 +1,27 @@
+---
+import { RepertoireCaroussel } from "@/components/RepertoireCaroussel";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+---
+
+<section
+  class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden"
+>
+  {/* Efectos de fondo */}
+  <div
+    class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,165,0,0.2),transparent_50%)]"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <SectionTitle>Nuestro Repertorio</SectionTitle>
+
+    <RepertoireCaroussel client:visible />
+
+    {/* Texto descriptivo */}
+    <p class="text-center text-gray-400 mt-8 max-w-2xl mx-auto">
+      Nuestro extenso repertorio abarca los mejores clásicos y éxitos
+      contemporáneos de la música latina. Adaptamos nuestras interpretaciones al
+      estilo y ambiente de su evento.
+    </p>
+  </div>
+</section>

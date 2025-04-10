@@ -15,7 +15,9 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [icon(), react()],
+  integrations: [icon(), react({
+    experimentalReactChildren: true
+  })],
   output: "static",
   adapter: vercel({
     webAnalytics: {

@@ -49,7 +49,7 @@ export const EventCard = ({ date, name, location }: Props) => {
         {
           hasEventPassed && (
             <span
-              className="absolute top-6 -right-6 rotate-45 capitalize text-3xl text-transparent bg-clip-text font-bold bg-gradient-to-r from-yellow-400 to-orange-500 animate-mini-rotate"
+              className="absolute -top-5 font-serif right-4 capitalize text-3xl font-bold animate-pulse duration-3000 text-gradient"
             >
               ¡GRACIAS!
             </span>
