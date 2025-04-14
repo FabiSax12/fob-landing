@@ -11,23 +11,26 @@ import type { GetStaticPaths } from "astro";
 export const getStaticPaths = (() => {
   return events.map((event) => {
     return {
-      params: { name: event.name.toString() },
+      params: { name: event.name.replace(/\s+/g, "-").toString() },
     };
   });
 }) satisfies GetStaticPaths;
 
 const { name } = Astro.params;
 
-const event = events.find((event) => event.name === name);
+const event = events.find((event) => event.name.replace(/\s+/g, "-") === name);
 
 if (!event) {
   throw new Error(`Evento no encontrado: ${name}`);
 }
-
-console.log("Evento", event);
 ---
 
-<Layout>
+<Layout
+  title={event.seo?.title}
+  description={event.seo?.description}
+  ogImage={event.seo?.ogImage}
+  keywords={event.seo?.keywords?.join(", ")}
+>
   <main class="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black">
     <div class="container mx-auto px-4 py-12">
       <a

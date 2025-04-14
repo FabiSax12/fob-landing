@@ -2,6 +2,22 @@
 import Analytics from "@vercel/analytics/astro";
 import Footer from "@/sections/Footer.astro";
 import "../styles/global.css";
+
+export interface Props {
+	title?: string;
+	description?: string;
+	ogImage?: string;
+	keywords?: string;
+}
+
+const {
+	title = "Florencia Orquesta Band",
+	description = "Florencia Orquesta Band - Disfruta de la mejor música en vivo y eventos bailables. Conoce más sobre nuestra banda y próximos conciertos.",
+	ogImage = "https://florenciaorquestaband.com/hero.png",
+	keywords,
+} = Astro.props;
+
+const canonicalUrl = Astro.url.href;
 ---
 
 <!doctype html>
@@ -10,7 +26,7 @@ import "../styles/global.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Florencia Orquesta Band</title>
+		<title>{title}</title>
 
 		<!-- <link rel="icon" type="image/png" href="/Congas.png" /> -->
 		<link
@@ -34,47 +50,22 @@ import "../styles/global.css";
 
 		<!-- SEO -->
 		<meta name="robots" content="index, follow" />
-		<meta
-			name="description"
-			content="Florencia Orquesta Band - Disfruta de la mejor música en vivo y eventos inolvidables. Conoce más sobre nuestra banda y próximos conciertos."
-		/>
-		<meta
-			name="keywords"
-			content="Florencia Orquesta Band, música en vivo, conciertos, banda musical, eventos, salsa, cumbia, merengue, música tropical, Orquesta Costa Rica, Orquesta San Carlos, Orquesta Alajuela, Orquesta para eventos, música para bodas, música para fiestas, contratar orquesta en Costa Rica, orquesta para eventos en San Carlos, música en vivo Costa Rica, orquesta profesional, música para eventos corporativos, orquesta para celebraciones, música latina en vivo, orquesta para bodas en Alajuela, música para eventos sociales"
-		/>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
 		<!-- SEO - OPEN GRAPH -->
-		<meta
-			property="og:title"
-			content="Florencia Orquesta Band | Música en Vivo y Conciertos"
-		/>
-		<meta
-			property="og:description"
-			content="Explora la magia de la música en vivo con Florencia Orquesta Band. Descubre nuestros eventos y acompáñanos en una experiencia única."
-		/>
-		<meta
-			property="og:image"
-			content="https://florenciaorquestaband.com/hero.png"
-		/>
-		<meta property="og:url" content="https://florenciaorquestaband.com" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Florencia Orquesta Band" />
 		<meta property="og:locale" content="es_CR" />
 
 		<!-- SEO - TWITTER -->
 		<meta name="twitter:card" content="summary_large_image" />
-
-		<meta
-			name="twitter:title"
-			content="Florencia Orquesta Band | Música en Vivo y Conciertos"
-		/>
-		<meta
-			name="twitter:description"
-			content="Explora la magia de la música en vivo con Florencia Orquesta Band. Descubre nuestros eventos y acompáñanos en una experiencia única."
-		/>
-		<meta
-			name="twitter:image"
-			content="https://florenciaorquestaband.com/hero.png"
-		/>
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
 		<meta name="twitter:site" content="@FlorenciaOrquestaBand" />
 		<meta name="twitter:creator" content="@FlorenciaOrquestaBand" />
 		<meta name="twitter:domain" content="florenciaorquestaband.com" />

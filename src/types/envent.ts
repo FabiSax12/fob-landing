@@ -14,5 +14,11 @@ export interface Event {
   time?: {
     start: string;
     concert: string;
+  },
+  seo?: {
+    title?: string;
+    description?: string;
+    ogImage?: string;
+    keywords?: string[];
   }
 }

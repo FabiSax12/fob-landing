@@ -1,7 +1,6 @@
 ---
 import { events } from "@/data/data";
 import { EventCard } from "../components/EventCard";
-import TextGradient from "@/components/ui/TextGradient.astro";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
 ---
 
@@ -13,8 +12,8 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         events.map((event) => (
-          <a href={`/evento/${event.name}`}>
-            <EventCard client:load {...event} />
+          <a href={`/evento/${event.name.replace(/\s+/g, "-")}`}>
+            <EventCard client:visible {...event} />
           </a>
         ))
       }

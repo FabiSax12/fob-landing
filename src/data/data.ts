@@ -1,5 +1,6 @@
 import type { Event } from "@/types/envent";
 
+
 export const events: Event[] = [
   {
     date: "2025-03-30",
@@ -13,6 +14,25 @@ export const events: Event[] = [
     time: {
       start: "19:00",
       concert: "20:00"
+    },
+    seo: {
+      title: "Evento Privado Club de Leones con Florencia Orquesta Band | Hotel Los Lagos",
+      description: "Florencia Orquesta Band amenizará el evento privado del Club de Leones Costa Rica el 30 de marzo de 2025 en el Hotel Los Lagos, La Fortuna.",
+      // Keywords específicas para este evento privado
+      keywords: [
+        "Evento Club de Leones Hotel Los Lagos",
+        "Florencia Orquesta Band Hotel Los Lagos",
+        "Fiesta privada Club de Leones La Fortuna",
+        "Evento privado 30 marzo 2025 La Fortuna",
+        "Florencia Orquesta Band Club de Leones Costa Rica",
+        "Música en vivo Hotel Los Lagos 30 marzo",
+        "Presentación Florencia Orquesta Band Hotel Los Lagos",
+        "Club de Leones evento Costa Rica",
+        "Hotel Los Lagos evento privado",
+        "Florencia Orquesta Band evento privado",
+        "Orquesta en La Fortuna evento privado",
+        "Banda musical Hotel Los Lagos",
+      ]
     }
   },
   {
@@ -24,7 +44,27 @@ export const events: Event[] = [
     },
     type: "Publico",
     description: "Evento organizado por la Municipalidad de San Carlos.",
-  },
+    seo: {
+      title: "Evento Público Municipalidad San Carlos con Florencia Orquesta Band | Ciudad Quesada",
+      description: "Disfruta de Florencia Orquesta Band en el evento público organizado por la Municipalidad de San Carlos el 11 de mayo de 2025 en Ciudad Quesada.",
+      // Keywords específicas para este evento público
+      keywords: [
+        "Evento Municipalidad Ciudad Quesada",
+        "Florencia Orquesta Band Ciudad Quesada",
+        "Evento público San Carlos 11 mayo 2025",
+        "Baile público Ciudad Quesada",
+        "Concierto Florencia Orquesta Band Parque Ciudad Quesada",
+        "Música en vivo Ciudad Quesada 11 mayo",
+        "Evento Municipalidad de San Carlos",
+        "Florencia Orquesta Band gratis Ciudad Quesada",
+        "Qué hacer en Ciudad Quesada mayo 2025",
+        "Fiesta pública San Carlos",
+        "Presentación Florencia Orquesta Band Ciudad Quesada",
+        "Orquesta en Ciudad Quesada evento público",
+        "Banda musical San Carlos mayo",
+      ]
+    }
+  }
 ];
 
 export const repertoire = {
@@ -99,67 +139,67 @@ export const members = [
   {
     name: "Julio Salas",
     instrument: "Director y Piano",
-    image: "/integrantes/julio-salas_landscape.jpg",
+    image: "/integrantes/julio-salas_landscape.webp",
   },
   {
     name: "Aylin Salas",
     instrument: "Voz",
-    image: "/integrantes/aylin-salas.jpg",
+    image: "/integrantes/aylin-salas.webp",
   },
   {
     name: "Keilyn Mora",
     instrument: "Voz",
-    image: "/integrantes/keilyn-mora_landscape.jpg",
+    image: "/integrantes/keilyn-mora_landscape.webp",
   },
   {
     name: "Anthony Lumbi",
     instrument: "Voz",
-    image: "/integrantes/anthony-lumbi_landscape.jpg",
+    image: "/integrantes/anthony-lumbi_landscape.webp",
   },
   {
     name: "Tomás Vásquez",
     instrument: "Bajo",
-    image: "/integrantes/tomas-vasquez.PNG",
+    image: "/integrantes/tomas-vasquez.webp",
   },
   {
     name: "Amy Pérez",
     instrument: "Sax Alto",
-    image: "/integrantes/amy-perez_landscape.jpg",
+    image: "/integrantes/amy-perez_landscape.webp",
   },
   {
     name: "Fabián Vargas",
     instrument: "Sax Alto",
-    image: "/integrantes/fabian-vargas.jpg",
+    image: "/integrantes/fabian-vargas.webp",
   },
   {
     name: "Erick Piedra",
     instrument: "Sax Tenor",
-    image: "/integrantes/erick-piedra.jpg",
+    image: "/integrantes/erick-piedra.webp",
   },
   {
     name: "Mauricio (Coco)",
     instrument: "Trompeta",
-    image: "/integrantes/mauricio-coco_landscape.jpg",
+    image: "/integrantes/mauricio-coco_landscape.webp",
   },
   {
     name: "Johan Román",
     instrument: "Trombón",
-    image: "/integrantes/johan-roman_landscape.jpg",
+    image: "/integrantes/johan-roman_landscape.webp",
   },
   {
     name: "Joseph Barquero",
     instrument: "Timbales",
-    image: "/integrantes/joseph-barquero_landscape.jpg",
+    image: "/integrantes/joseph-barquero_landscape.webp",
   },
   {
     name: "Kike Obando",
     instrument: "Congas",
-    image: "/integrantes/kike-obando_landscape.png",
+    image: "/integrantes/kike-obando_landscape.webp",
   },
   {
     name: "Jairo Huertas",
     instrument: "Percusión Menor",
-    image: "/integrantes/jairo-huertas_landscape.jpg",
+    image: "/integrantes/jairo-huertas_landscape.webp",
   }
 ];
 
