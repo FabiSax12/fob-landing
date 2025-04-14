@@ -139,67 +139,67 @@ export const members = [
   {
     name: "Julio Salas",
     instrument: "Director y Piano",
-    image: "/integrantes/julio-salas_landscape.jpg",
+    image: "/integrantes/julio-salas_landscape.webp",
   },
   {
     name: "Aylin Salas",
     instrument: "Voz",
-    image: "/integrantes/aylin-salas.jpg",
+    image: "/integrantes/aylin-salas.webp",
   },
   {
     name: "Keilyn Mora",
     instrument: "Voz",
-    image: "/integrantes/keilyn-mora_landscape.jpg",
+    image: "/integrantes/keilyn-mora_landscape.webp",
   },
   {
     name: "Anthony Lumbi",
     instrument: "Voz",
-    image: "/integrantes/anthony-lumbi_landscape.jpg",
+    image: "/integrantes/anthony-lumbi_landscape.webp",
   },
   {
     name: "Tomás Vásquez",
     instrument: "Bajo",
-    image: "/integrantes/tomas-vasquez.PNG",
+    image: "/integrantes/tomas-vasquez.webp",
   },
   {
     name: "Amy Pérez",
     instrument: "Sax Alto",
-    image: "/integrantes/amy-perez_landscape.jpg",
+    image: "/integrantes/amy-perez_landscape.webp",
   },
   {
     name: "Fabián Vargas",
     instrument: "Sax Alto",
-    image: "/integrantes/fabian-vargas.jpg",
+    image: "/integrantes/fabian-vargas.webp",
   },
   {
     name: "Erick Piedra",
     instrument: "Sax Tenor",
-    image: "/integrantes/erick-piedra.jpg",
+    image: "/integrantes/erick-piedra.webp",
   },
   {
     name: "Mauricio (Coco)",
     instrument: "Trompeta",
-    image: "/integrantes/mauricio-coco_landscape.jpg",
+    image: "/integrantes/mauricio-coco_landscape.webp",
   },
   {
     name: "Johan Román",
     instrument: "Trombón",
-    image: "/integrantes/johan-roman_landscape.jpg",
+    image: "/integrantes/johan-roman_landscape.webp",
   },
   {
     name: "Joseph Barquero",
     instrument: "Timbales",
-    image: "/integrantes/joseph-barquero_landscape.jpg",
+    image: "/integrantes/joseph-barquero_landscape.webp",
   },
   {
     name: "Kike Obando",
     instrument: "Congas",
-    image: "/integrantes/kike-obando_landscape.png",
+    image: "/integrantes/kike-obando_landscape.webp",
   },
   {
     name: "Jairo Huertas",
     instrument: "Percusión Menor",
-    image: "/integrantes/jairo-huertas_landscape.jpg",
+    image: "/integrantes/jairo-huertas_landscape.webp",
   }
 ];
 

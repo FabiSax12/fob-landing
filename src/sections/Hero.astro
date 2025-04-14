@@ -18,12 +18,15 @@ import { Image } from "astro:assets";
     class="relative z-10 container mx-auto flex flex-col items-center justify-center min-h-screen px-4 py-20"
   >
     <Image
-      src="/logo_simple.png"
+      src="/logo_simple.webp"
       alt="Florencia Orquesta Band"
       width={800}
       height={400}
+      loading="eager"
+      sizes={"(max-width: 800px) 100vw, 800px"}
+      format="webp"
+      quality={80}
       class="mx-auto animate-float"
-      loading={"eager"}
     />
     <p class="text-2xl md:text-3xl mt-8 mb-12 text-center">
       <TextGradient isLong isAnimated className="font-light">

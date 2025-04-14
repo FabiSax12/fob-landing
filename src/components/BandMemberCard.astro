@@ -17,8 +17,11 @@ const { image, name, instrument, bio } = Astro.props;
       alt={name}
       width={300}
       height={200}
-      class="transform group-hover:scale-105 transition-transform duration-500 object-cover bg-center aspect-video"
+      format="webp"
+      quality={80}
       loading="lazy"
+      sizes={"(max-width: 300px) 100vw, 300px"}
+      class="transform group-hover:scale-105 transition-transform duration-500 object-cover bg-center aspect-video"
     />
   </div>
   <h3
