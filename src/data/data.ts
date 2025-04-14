@@ -107,9 +107,9 @@ export const members = [
     image: "/integrantes/aylin-salas.jpg",
   },
   {
-    name: "Keylin Mora",
+    name: "Keilyn Mora",
     instrument: "Voz",
-    image: "/placeholder.svg?height=400&width=300",
+    image: "/integrantes/keilyn-mora_landscape.jpg",
   },
   {
     name: "Anthony Lumbi",
