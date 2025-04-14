@@ -11,14 +11,14 @@ import type { GetStaticPaths } from "astro";
 export const getStaticPaths = (() => {
   return events.map((event) => {
     return {
-      params: { name: event.name.toString() },
+      params: { name: event.name.replace(/\s+/g, "-").toString() },
     };
   });
 }) satisfies GetStaticPaths;
 
 const { name } = Astro.params;
 
-const event = events.find((event) => event.name === name);
+const event = events.find((event) => event.name.replace(/\s+/g, "-") === name);
 
 if (!event) {
   throw new Error(`Evento no encontrado: ${name}`);

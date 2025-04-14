@@ -12,7 +12,7 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         events.map((event) => (
-          <a href={`/evento/${event.name}`}>
+          <a href={`/evento/${event.name.replace(/\s+/g, "-")}`}>
             <EventCard client:visible {...event} />
           </a>
         ))
