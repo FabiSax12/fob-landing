@@ -142,14 +142,14 @@ export const members = [
     image: "/integrantes/julio-salas_landscape.webp",
   },
   {
-    name: "Aylin Salas",
+    name: "Ailyn Salas",
     instrument: "Voz",
     image: "/integrantes/aylin-salas.webp",
   },
   {
     name: "Keilyn Mora",
     instrument: "Voz",
-    image: "/integrantes/keilyn-mora_landscape.webp",
+    image: "/integrantes/keilyn-mora_landscape.jpg",
   },
   {
     name: "Anthony Lumbi",
@@ -177,7 +177,7 @@ export const members = [
     image: "/integrantes/erick-piedra.webp",
   },
   {
-    name: "Mauricio (Coco)",
+    name: "Mauricio",
     instrument: "Trompeta",
     image: "/integrantes/mauricio-coco_landscape.webp",
   },
