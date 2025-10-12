@@ -1,23 +1,32 @@
 ---
+import { MapPin } from "lucide-react";
 const { src } = Astro.props;
 ---
 
-<div class="mt-12 w-full mx-auto overflow-x-scroll">
-  <h2
-    class="text-2xl font-serif mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"
-  >
-    Ubicación
-  </h2>
-  <iframe
-    width="600"
-    height="450"
-    style="border:0"
-    class="rounded-3xl w-full"
-    loading="eager"
-    allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade"
-    src={src}
-    title="Ubicación del evento"
-  >
-  </iframe>
+<div class="mt-12 w-full mx-auto">
+  <div class="bg-zinc-900/50 backdrop-blur-sm border border-orange-500/10 rounded-xl p-6 overflow-hidden">
+    <div class="flex items-center gap-2 mb-6">
+      <MapPin className="w-6 h-6 text-orange-400" />
+      <h2 class="text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+        Ubicación del Evento
+      </h2>
+    </div>
+    <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-orange-500/20 shadow-lg">
+      <iframe
+        width="100%"
+        height="100%"
+        style="border:0"
+        class="absolute inset-0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src={src}
+        title="Ubicación del evento"
+      >
+      </iframe>
+    </div>
+    <p class="text-sm text-gray-400 mt-4 text-center">
+      Haz clic en el mapa para ver indicaciones y más detalles
+    </p>
+  </div>
 </div>
