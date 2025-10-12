@@ -10,17 +10,21 @@ export const events: Event[] = [
       address: "Platanar, Florencia, San Carlos, Alajuela",
       src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1313.7785775702268!2d-84.46939969908252!3d10.41866158428915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa07046166152df%3A0x2ef061b01258a224!2sSalon%20Comunal%20Platanar!5e0!3m2!1ses!2scr!4v1760232138651!5m2!1ses!2scr"
     },
-    type: "Público",
-    category: "Evento Benéfico",
+    type: "Publico",
     description: "Gran baile benéfico organizado por la comunidad de Florencia para ayudar a una familia de escasos recursos. Una noche de solidaridad, música en vivo y diversión con Florencia Orquesta Band. Entrada libre, aporte voluntario.",
     time: {
       start: "20:00",
-      concert: "23:30",
-      end: "03:00"
+      concert: "20:00",
+      end: "23:30"
     },
     ticket: {
-      price: "Aporte voluntario",
-      type: "Entrada libre"
+      presale: {
+        price: "₡4.000"
+      },
+      regular: {
+        price: "₡6.000"
+      },
+      type: "Entrada Libre"
     },
     seo: {
       title: "Baile Benéfico Solidario con Florencia Orquesta Band | 18 Oct 2025 | Platanar",
@@ -31,35 +35,35 @@ export const events: Event[] = [
         "Florencia Orquesta Band Platanar 2025",
         "evento solidario Florencia Costa Rica",
         "baile benéfico 18 octubre Platanar",
-        
+
         // Long-tail keywords
         "dónde hay bailes en Florencia San Carlos",
         "eventos benéficos Zona Norte Costa Rica",
         "baile con orquesta en vivo Florencia",
         "qué hacer en Florencia 18 octubre 2025",
         "eventos públicos Florencia Alajuela",
-        
+
         // Keywords de banda
         "Florencia Orquesta Band en vivo",
         "concierto Florencia Orquesta Band octubre",
         "presentaciones Florencia Orquesta Band 2025",
-        
+
         // Keywords de lugar
         "Salón Comunal Platanar eventos",
         "bailes Salón Comunal Platanar Florencia",
         "eventos Platanar San Carlos",
-        
+
         // Keywords de causa social
         "evento solidario familia necesitada Florencia",
         "baile beneficencia Zona Norte",
         "apoyo comunidad Florencia Costa Rica",
-        
+
         // Keywords de tipo de evento
         "baile público Florencia entrada libre",
         "música en vivo gratis Florencia",
         "evento comunitario Florencia octubre",
         "fiesta benéfica Zona Norte Costa Rica",
-        
+
         // Keywords geográficas
         "eventos San Carlos Alajuela octubre",
         "bailes Zona Norte Costa Rica 2025",
@@ -98,6 +102,23 @@ export const events: Event[] = [
       start: "19:00",
       concert: "20:00"
     },
+    ticket: {
+      regular: {
+        price: "Privado"
+      },
+      type: "Entrada Libre"
+    },
+    social: {
+      hashtags: [
+        "#EventoPrivado",
+        "#ClubDeLeones",
+        "#FlorenciaOrquestaBand",
+        "#HotelLosLagos",
+        "#LaFortuna",
+        "#MúsicaEnVivo",
+        "#CostaRica"
+      ]
+    },
     seo: {
       title: "Evento Privado Club de Leones con Florencia Orquesta Band | Hotel Los Lagos",
       description: "Florencia Orquesta Band amenizará el evento privado del Club de Leones Costa Rica el 30 de marzo de 2025 en el Hotel Los Lagos, La Fortuna.",
@@ -115,7 +136,13 @@ export const events: Event[] = [
         "Florencia Orquesta Band evento privado",
         "Orquesta en La Fortuna evento privado",
         "Banda musical Hotel Los Lagos",
-      ]
+      ],
+      canonical: "https://www.florenciaorquestaband.com/eventos/club-de-leones-hotel-los-lagos-2025-03-30",
+      og: {
+        type: "event",
+        locale: "es_CR",
+        site_name: "Florencia Orquesta Band"
+      }
     }
   },
   {
@@ -127,6 +154,26 @@ export const events: Event[] = [
     },
     type: "Publico",
     description: "Evento organizado por la Municipalidad de San Carlos.",
+    time: {
+      start: "18:00",
+      concert: "19:00"
+    },
+    ticket: {
+      regular: {
+        price: "Gratis"
+      },
+      type: "Entrada Libre"
+    },
+    social: {
+      hashtags: [
+        "#EventoMunicipalidad",
+        "#FlorenciaOrquestaBand",
+        "#CiudadQuesada",
+        "#SanCarlos",
+        "#MúsicaEnVivo",
+        "#CostaRica"
+      ]
+    },
     seo: {
       title: "Evento Público Municipalidad San Carlos con Florencia Orquesta Band | Ciudad Quesada",
       description: "Disfruta de Florencia Orquesta Band en el evento público organizado por la Municipalidad de San Carlos el 11 de mayo de 2025 en Ciudad Quesada.",
@@ -145,7 +192,13 @@ export const events: Event[] = [
         "Presentación Florencia Orquesta Band Ciudad Quesada",
         "Orquesta en Ciudad Quesada evento público",
         "Banda musical San Carlos mayo",
-      ]
+      ],
+      canonical: "https://www.florenciaorquestaband.com/eventos/evento-municipalidad-ciudad-quesada-2025-05-11",
+      og: {
+        type: "event",
+        locale: "es_CR",
+        site_name: "Florencia Orquesta Band"
+      }
     }
   }
 ];
