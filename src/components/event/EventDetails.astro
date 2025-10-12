@@ -1,61 +1,224 @@
 ---
-import { Calendar, Globe, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Globe, MapPin, Clock, Ticket, Share2 } from "lucide-react";
 import type { Event } from "@/types/envent";
 
 const { event } = Astro.props as { event: Event };
 
 const formatDate = (dateString: string) => {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat("es-ES", {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return new Intl.DateTimeFormat("es-CR", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   }).format(date);
 };
+
+// Preparar hashtags para compartir (sin el símbolo #)
+const hashtagsForSharing = event.social?.hashtags
+  .map((tag) => tag.replace("#", ""))
+  .join(",") || "";
+
+// URL para compartir
+const shareUrl = event.seo?.canonical || `https://www.florenciaorquestaband.com/eventos/${event.name.toLowerCase().replace(/\s+/g, "-")}`;
+const shareText = `🎵 ${event.name} - ${formatDate(event.date)}`;
 ---
 
-<div>
-  <h1
-    class="text-4xl md:text-5xl font-serif mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500"
-  >
-    {event.name}
-  </h1>
+<div class="space-y-6">
+  <!-- Info básica del evento -->
+  <div class="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-orange-500/10">
+    <div class="space-y-4">
+      <div class="flex items-start gap-3">
+        <Calendar className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+        <div>
+          <p class="text-sm text-gray-400 mb-1">Fecha</p>
+          <p class="text-lg font-medium text-white">{formatDate(event.date)}</p>
+        </div>
+      </div>
 
-  <div class="flex items-center mb-4 text-gray-300">
-    <Calendar className="w-5 h-5 mr-2 text-orange-400" />
-    <span>{formatDate(event.date)}</span>
+      <div class="flex items-start gap-3">
+        <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+        <div>
+          <p class="text-sm text-gray-400 mb-1">Ubicación</p>
+          <p class="text-lg font-medium text-white">{event.location.name}</p>
+          {event.location.address && (
+            <p class="text-sm text-gray-500 mt-1">{event.location.address}</p>
+          )}
+        </div>
+      </div>
+
+      {event.website && (
+        <div class="flex items-start gap-3">
+          <Globe className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
+          <div>
+            <p class="text-sm text-gray-400 mb-1">Sitio web</p>
+            <a
+              href={event.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-orange-400 hover:text-orange-500 transition-colors underline-offset-2 hover:underline"
+            >
+              Visitar sitio web
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
   </div>
 
-  <div class="flex items-center mb-6 text-gray-300">
-    <MapPin className="w-5 h-5 mr-2 text-orange-400" />
-    <span>{event.location.name}</span>
-  </div>
+  <!-- Descripción -->
+  {event.description && (
+    <div class="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-orange-500/10">
+      <h2 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 mb-4">
+        Acerca del evento
+      </h2>
+      <p class="text-gray-300 leading-relaxed">{event.description}</p>
+    </div>
+  )}
 
-  {
-    event.website && (
-      <div class="flex items-center mb-6 text-gray-300">
-        <Globe className="w-5 h-5 mr-2 text-orange-400" />
+  <!-- Horarios -->
+  {event.time && (
+    <div class="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-orange-500/10">
+      <div class="flex items-center gap-2 mb-4">
+        <Clock className="w-5 h-5 text-orange-400" />
+        <h2 class="text-xl font-semibold text-orange-400">Horarios</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-zinc-800/50 rounded-lg p-4 border border-orange-500/10">
+          <p class="text-sm text-gray-400 mb-1">Apertura</p>
+          <p class="text-2xl font-bold text-white">{event.time.start}</p>
+        </div>
+        <div class="bg-zinc-800/50 rounded-lg p-4 border border-orange-500/10">
+          <p class="text-sm text-gray-400 mb-1">Concierto</p>
+          <p class="text-2xl font-bold text-white">{event.time.concert}</p>
+        </div>
+        {event.time.end && (
+          <div class="bg-zinc-800/50 rounded-lg p-4 border border-orange-500/10">
+            <p class="text-sm text-gray-400 mb-1">Cierre</p>
+            <p class="text-2xl font-bold text-white">{event.time.end}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  )}
+
+  <!-- Información de Entradas -->
+  {event.ticket && (
+    <div class="bg-gradient-to-br from-orange-500/10 via-red-500/10 to-yellow-500/10 rounded-xl p-6 border border-orange-500/20 shadow-lg">
+      <div class="flex items-center gap-2 mb-6">
+        <Ticket className="w-6 h-6 text-orange-400" />
+        <h2 class="text-2xl font-bold text-orange-400">Entradas</h2>
+      </div>
+
+      <div class="space-y-6">
+        {/* Preventa si existe */}
+        {event.ticket.presale && (
+          <div class="bg-zinc-900/60 backdrop-blur-sm rounded-lg p-5 border border-yellow-500/20">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-400 rounded-full text-sm font-semibold border border-yellow-500/30">
+                ⚡ Preventa - Precio especial
+              </span>
+            </div>
+            <div class="flex items-baseline gap-2 mb-4">
+              <span class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
+                {event.ticket.presale.price}
+              </span>
+            </div>
+            {event.ticket.presale.link && (
+              <a
+                href={event.ticket.presale.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block px-6 py-3 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 font-semibold"
+              >
+                Comprar Preventa
+              </a>
+            )}
+          </div>
+        )}
+
+        {/* Precio regular/del día */}
+        <div class={event.ticket.presale ? "bg-zinc-900/40 backdrop-blur-sm rounded-lg p-5 border border-orange-500/10" : ""}>
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm font-semibold border border-orange-500/30">
+              {event.ticket.presale ? "💵 Precio en taquilla" : event.ticket.type}
+            </span>
+          </div>
+          <div class="flex items-baseline gap-2 mb-4">
+            <span class="text-4xl font-bold text-white">
+              {event.ticket.regular.price === "Gratis" ? "🎫 Gratis" : event.ticket.regular.price}
+            </span>
+          </div>
+          <p class="text-gray-400 text-sm mb-4">{event.ticket.type}</p>
+          {event.ticket.regular.link && !event.ticket.presale && (
+            <a
+              href={event.ticket.regular.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/50 transition-all duration-300 font-semibold"
+            >
+              Comprar Entradas
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  )}
+
+  <!-- Compartir en Redes Sociales -->
+  {event.social?.hashtags && event.social.hashtags.length > 0 && (
+    <div class="bg-zinc-900/50 backdrop-blur-sm rounded-xl p-6 border border-orange-500/10">
+      <div class="flex items-center gap-2 mb-4">
+        <Share2 className="w-5 h-5 text-orange-400" />
+        <h2 class="text-xl font-semibold text-orange-400">Comparte este evento</h2>
+      </div>
+
+      {/* Botones para compartir */}
+      <div class="flex gap-3 mb-4 flex-wrap">
         <a
-          href={event.website}
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}&hashtags=${hashtagsForSharing}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-orange-400 hover:text-orange-500 transition-colors"
+          class="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all duration-300 border border-zinc-700 hover:border-orange-500/50"
         >
-          Sitio web del evento
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <span class="font-medium">Twitter</span>
+        </a>
+        <a
+          href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all duration-300 border border-zinc-700 hover:border-orange-500/50"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 3.667h-3.533v7.98H9.101z"/>
+          </svg>
+          <span class="font-medium">Facebook</span>
+        </a>
+        <a
+          href={`https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-all duration-300 border border-zinc-700 hover:border-orange-500/50"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span class="font-medium">WhatsApp</span>
         </a>
       </div>
-    )
-  }
 
-  <div class="prose prose-invert max-w-none mb-8">
-    <p class="text-lg text-gray-300">{event.description}</p>
-  </div>
-
-  <!-- <Button
-    className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
-  >
-    Reservar Entradas
-  </Button> -->
+      {/* Hashtags */}
+      <div class="flex flex-wrap gap-2">
+        {event.social.hashtags.map((tag) => (
+          <span class="px-3 py-1.5 bg-zinc-800/80 backdrop-blur-sm rounded-full text-sm text-orange-400 hover:bg-orange-500/20 transition-all cursor-pointer border border-orange-500/20 hover:border-orange-500/50">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
 </div>
