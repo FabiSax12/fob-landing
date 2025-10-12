@@ -30,35 +30,75 @@ if (!event) {
   description={event.seo?.description}
   ogImage={event.seo?.ogImage}
   keywords={event.seo?.keywords?.join(", ")}
+  canonical={event.seo?.canonical}
+  og={event.seo?.og}
 >
   <main class="min-h-screen bg-gradient-to-br from-black via-zinc-900 to-black">
+    {/* Header con botón volver */}
+    <div class="w-full bg-zinc-900/50 backdrop-blur-sm border-b border-orange-500/10">
+      <div class="container mx-auto px-4 py-6">
+        <a
+          href="/"
+          class="inline-flex items-center text-orange-400 hover:text-orange-500 transition-colors group"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
+          <span class="font-medium">Volver a Inicio</span>
+        </a>
+      </div>
+    </div>
+
     <div class="container mx-auto px-4 py-12">
-      <a
-        href="/"
-        class="inline-flex items-center text-orange-400 hover:text-orange-500 transition-colors mb-8"
-      >
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Volver a Inicio
-      </a>
+      {/* Hero Section - Imagen y título principal */}
+      {
+        event.image && (
+          <div class="relative w-full h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-12 group">
+            <img
+              src={event.image}
+              alt={event.name}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            {/* Overlay gradient */}
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Imagen del evento */}
-        {
-          event.image && (
-            <div class="relative h-[400px] rounded-lg overflow-hidden">
-              <img src={event.image} alt={event.name} class="object-cover" />
-              <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-orange-500 text-white text-sm font-medium">
-                {event.type}
-              </div>
+            {/* Badge de tipo */}
+            <div class="absolute top-6 right-6 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-semibold shadow-lg backdrop-blur-sm border border-white/20">
+              {event.type}
             </div>
-          )
-        }
 
-        <EventDetails event={event} />
+            {/* Título superpuesto */}
+            <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+              <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 drop-shadow-2xl">
+                {event.name}
+              </h1>
+            </div>
+          </div>
+        )
+      }
+
+      {/* Título si no hay imagen */}
+      {
+        !event.image && (
+          <h1 class="text-4xl md:text-6xl font-serif font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500">
+            {event.name}
+          </h1>
+        )
+      }
+
+      {/* Grid de contenido principal */}
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Columna principal - 2/3 del espacio */}
+        <div class="lg:col-span-2 space-y-8">
+          <EventDetails event={event} />
+        </div>
+
+        {/* Sidebar - 1/3 del espacio */}
+        <div class="lg:col-span-1 space-y-8">
+          <EventAditionalInfo event={event} />
+        </div>
       </div>
 
+      {/* Mapa a ancho completo */}
       <EventLocationMap src={event.location.src} />
-      <EventAditionalInfo event={event} />
     </div>
   </main>
 </Layout>
