@@ -8,6 +8,12 @@ export interface Props {
 	description?: string;
 	ogImage?: string;
 	keywords?: string;
+	canonical?: string;
+	og?: {
+		type?: string;
+		locale?: string;
+		site_name?: string;
+	};
 }
 
 const {
@@ -15,9 +21,14 @@ const {
 	description = "Florencia Orquesta Band - Disfruta de la mejor música en vivo y eventos bailables. Conoce más sobre nuestra banda y próximos conciertos.",
 	ogImage = "https://florenciaorquestaband.com/hero.png",
 	keywords,
+	canonical,
+	og,
 } = Astro.props;
 
-const canonicalUrl = Astro.url.href;
+const canonicalUrl = canonical || Astro.url.href;
+const ogType = og?.type || "website";
+const ogLocale = og?.locale || "es_CR";
+const ogSiteName = og?.site_name || "Florencia Orquesta Band";
 ---
 
 <!doctype html>
@@ -49,6 +60,7 @@ const canonicalUrl = Astro.url.href;
 		<link rel="manifest" href="/site.webmanifest" />
 
 		<!-- SEO -->
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="robots" content="index, follow" />
 		<meta name="description" content={description} />
 		<meta name="keywords" content={keywords} />
@@ -57,9 +69,9 @@ const canonicalUrl = Astro.url.href;
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImage} />
 		<meta property="og:url" content={canonicalUrl} />
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Florencia Orquesta Band" />
-		<meta property="og:locale" content="es_CR" />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:site_name" content={ogSiteName} />
+		<meta property="og:locale" content={ogLocale} />
 
 		<!-- SEO - TWITTER -->
 		<meta name="twitter:card" content="summary_large_image" />
