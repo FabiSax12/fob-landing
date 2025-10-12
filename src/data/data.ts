@@ -3,6 +3,89 @@ import type { Event } from "@/types/envent";
 
 export const events: Event[] = [
   {
+    date: "2025-10-18",
+    name: "Baile Benéfico Solidario - Florencia",
+    location: {
+      name: "Salón Comunal de Platanar, Florencia",
+      address: "Platanar, Florencia, San Carlos, Alajuela",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1313.7785775702268!2d-84.46939969908252!3d10.41866158428915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa07046166152df%3A0x2ef061b01258a224!2sSalon%20Comunal%20Platanar!5e0!3m2!1ses!2scr!4v1760232138651!5m2!1ses!2scr"
+    },
+    type: "Público",
+    category: "Evento Benéfico",
+    description: "Gran baile benéfico organizado por la comunidad de Florencia para ayudar a una familia de escasos recursos. Una noche de solidaridad, música en vivo y diversión con Florencia Orquesta Band. Entrada libre, aporte voluntario.",
+    time: {
+      start: "20:00",
+      concert: "23:30",
+      end: "03:00"
+    },
+    ticket: {
+      price: "Aporte voluntario",
+      type: "Entrada libre"
+    },
+    seo: {
+      title: "Baile Benéfico Solidario con Florencia Orquesta Band | 18 Oct 2025 | Platanar",
+      description: "Únete al baile benéfico el 18 de octubre de 2025 en el Salón Comunal de Platanar, Florencia. Florencia Orquesta Band en vivo desde las 23:30. Evento solidario a beneficio de familia necesitada. Entrada libre con aporte voluntario. ¡No te lo pierdas!",
+      keywords: [
+        // Keywords principales del evento
+        "baile benéfico Florencia octubre 2025",
+        "Florencia Orquesta Band Platanar 2025",
+        "evento solidario Florencia Costa Rica",
+        "baile benéfico 18 octubre Platanar",
+        
+        // Long-tail keywords
+        "dónde hay bailes en Florencia San Carlos",
+        "eventos benéficos Zona Norte Costa Rica",
+        "baile con orquesta en vivo Florencia",
+        "qué hacer en Florencia 18 octubre 2025",
+        "eventos públicos Florencia Alajuela",
+        
+        // Keywords de banda
+        "Florencia Orquesta Band en vivo",
+        "concierto Florencia Orquesta Band octubre",
+        "presentaciones Florencia Orquesta Band 2025",
+        
+        // Keywords de lugar
+        "Salón Comunal Platanar eventos",
+        "bailes Salón Comunal Platanar Florencia",
+        "eventos Platanar San Carlos",
+        
+        // Keywords de causa social
+        "evento solidario familia necesitada Florencia",
+        "baile beneficencia Zona Norte",
+        "apoyo comunidad Florencia Costa Rica",
+        
+        // Keywords de tipo de evento
+        "baile público Florencia entrada libre",
+        "música en vivo gratis Florencia",
+        "evento comunitario Florencia octubre",
+        "fiesta benéfica Zona Norte Costa Rica",
+        
+        // Keywords geográficas
+        "eventos San Carlos Alajuela octubre",
+        "bailes Zona Norte Costa Rica 2025",
+        "entretenimiento Florencia San Carlos"
+      ],
+      canonical: "https://www.florenciaorquestaband.com/eventos/baile-benefico-platanar-2025-10-18",
+      og: {
+        type: "event",
+        locale: "es_CR",
+        site_name: "Florencia Orquesta Band"
+      }
+    },
+    social: {
+      hashtags: [
+        "#BaileBenéfico",
+        "#FlorenciaOrquestaBand",
+        "#Florencia",
+        "#EventoSolidario",
+        "#ZonaNorte",
+        "#CostaRica",
+        "#MúsicaEnVivo",
+        "#Platanar"
+      ]
+    }
+  },
+  {
     date: "2025-03-30",
     name: "Club de Leones",
     location: {
