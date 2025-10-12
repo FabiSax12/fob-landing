@@ -4,6 +4,7 @@ export interface Event {
   location: {
     name: string;
     src: string;
+    address?: string;
     latitude?: number;
     longitude?: number;
   };
@@ -14,11 +15,33 @@ export interface Event {
   time?: {
     start: string;
     concert: string;
+    end?: string;
+  },
+  ticket: {
+    presale?: {
+      price: string;
+      link?: string;
+    };
+    regular: {
+      price: string;
+      link?: string;
+    };
+    type: "Entrada Libre" | "Preventa" | "Taquilla";
   },
   seo?: {
     title?: string;
     description?: string;
     ogImage?: string;
     keywords?: string[];
+    canonical?: string;
+    og?: {
+      type?: string;
+      locale?: string;
+      site_name?: string;
+    }
+  }
+
+  social: {
+    hashtags: string[];
   }
 }
