@@ -1,13 +1,17 @@
 backend:
   name: git-gateway
   branch: main
+  # Esto fuerza al CMS a pedirle permiso a Netlify, no a Vercel:
+  gateway_url: https://florenciaorquestaband.netlify.app/.netlify/git
+  # Mantén esta URL como la de Netlify también
+  site_url: https://florenciaorquestaband.netlify.app
 
 # URL del sitio en Netlify (solo para Identity, no hosting)
 site_url: https://florenciaorquestaband.netlify.app
 display_url: https://florenciaorquestaband.com
 
 # Descomentar para desarrollo local (sin autenticación)
-# local_backend: true
+local_backend: true
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
