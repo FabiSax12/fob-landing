@@ -1,14 +1,13 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: FabiSax12/fob-landing # Ejemplo: florencia/web-astro
   branch: main
-  # Esto fuerza al CMS a pedirle permiso a Netlify, no a Vercel:
-  gateway_url: https://florenciaorquestaband.netlify.app/.netlify/git
-  # Mantén esta URL como la de Netlify también
-  site_url: https://florenciaorquestaband.netlify.app
+  base_url: https://netlify-cms-github-oauth-provider-pi.vercel.app # URL de la función de Vercel
+  auth_endpoint: auth
 
 # URL del sitio en Netlify (solo para Identity, no hosting)
-site_url: https://florenciaorquestaband.netlify.app
-display_url: https://florenciaorquestaband.com
+# site_url: https://florenciaorquestaband.netlify.app
+# display_url: https://florenciaorquestaband.com
 
 # Descomentar para desarrollo local (sin autenticación)
 local_backend: true

@@ -7,33 +7,11 @@
     <meta name="robots" content="noindex" />
     <title>Content Manager</title>
 
-    <!-- 1. ESTO DEBE IR PRIMERO: Seteo inmediato de la URL -->
-    <script>
-        // Seteamos la URL en localStorage antes de que cargue cualquier otro script
-        localStorage.setItem('netlifySiteURL', 'https://florenciaorquestaband.netlify.app');
-    </script>
-
-    <!-- 2. Cargamos el widget de identidad -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 </head>
 
 <body>
-    <script>
-        // 3. Inicializamos el widget apuntando a Netlify
-        netlifyIdentity.init({
-            API_URL: 'https://florenciaorquestaband.netlify.app/.netlify/identity'
-        });
-
-        // 4. Script para manejar el login correctamente
-        netlifyIdentity.on('login', () => {
-            // Recargar para que el CMS reconozca el token
-            window.location.reload();
-        });
-    </script>
-
-    <!-- 5. El CMS se carga AL FINAL -->
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 </body>
 
