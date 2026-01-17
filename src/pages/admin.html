@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
@@ -11,6 +11,25 @@
 </head>
 
 <body>
+    <script>
+        // 1. Forzamos la URL en el localStorage para el backend del CMS
+        localStorage.setItem('netlifySiteURL', 'https://florenciaorquestaband.netlify.app');
+
+        // 2. Inicializamos el widget de Identity apuntando explícitamente a Netlify
+        netlifyIdentity.init({
+            API_URL: 'https://florenciaorquestaband.netlify.app/.netlify/identity'
+        });
+
+        // Opcional: Redirigir al login si se cierra la sesión
+        netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+        });
+        netlifyIdentity.on('logout', () => {
+            document.location.href = '/admin/';
+        });
+    </script>
+
+    <!-- Carga de Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 </body>
 

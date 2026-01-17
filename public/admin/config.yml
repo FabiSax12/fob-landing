@@ -4,9 +4,10 @@ backend:
 
 # URL del sitio en Netlify (solo para Identity, no hosting)
 site_url: https://florenciaorquestaband.netlify.app
+display_url: https://florenciaorquestaband.com
 
 # Descomentar para desarrollo local (sin autenticación)
-local_backend: true
+# local_backend: true
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
