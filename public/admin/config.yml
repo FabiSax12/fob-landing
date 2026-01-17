@@ -1,0 +1,194 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# URL del sitio en Netlify (solo para Identity, no hosting)
+site_url: https://florenciaorquestaband.netlify.app
+
+# Descomentar para desarrollo local (sin autenticación)
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+locale: "es"
+
+collections:
+  # ===== EVENTOS =====
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    folder: "src/content/eventos"
+    create: true
+    delete: true
+    extension: "yaml"
+    format: "yaml"
+    slug: "{{slug}}"
+    summary: "{{name}} - {{date}}"
+    sortable_fields: ["date", "name"]
+    fields:
+      - { label: "Nombre del evento", name: "name", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: "Tipo", name: "type", widget: "select", options: ["Publico", "Privado"] }
+      - { label: "Descripción", name: "description", widget: "text", required: false }
+      - { label: "Imagen del evento", name: "image", widget: "image", required: false }
+      - label: "Ubicación"
+        name: "location"
+        widget: "object"
+        fields:
+          - { label: "Nombre del lugar", name: "name", widget: "string" }
+          - { label: "Dirección", name: "address", widget: "string", required: false }
+          - { label: "URL Google Maps (embed)", name: "src", widget: "string" }
+      - label: "Horarios"
+        name: "time"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Apertura", name: "start", widget: "string", hint: "Formato: 16:00" }
+          - { label: "Concierto", name: "concert", widget: "string", hint: "Formato: 17:00" }
+          - { label: "Cierre", name: "end", widget: "string", required: false, hint: "Formato: 22:00" }
+      - label: "Entradas"
+        name: "ticket"
+        widget: "object"
+        fields:
+          - { label: "Tipo de venta", name: "type", widget: "select", options: ["Entrada Libre", "Preventa", "Taquilla"] }
+          - label: "Preventa"
+            name: "presale"
+            widget: "object"
+            required: false
+            collapsed: true
+            fields:
+              - { label: "Precio", name: "price", widget: "string", hint: "Ej: ₡4.000" }
+              - { label: "Link de compra", name: "link", widget: "string", required: false }
+          - label: "Precio regular"
+            name: "regular"
+            widget: "object"
+            fields:
+              - { label: "Precio", name: "price", widget: "string", hint: "Ej: ₡6.000 o Gratis" }
+              - { label: "Link de compra", name: "link", widget: "string", required: false }
+      - label: "Redes sociales"
+        name: "social"
+        widget: "object"
+        fields:
+          - label: "Hashtags"
+            name: "hashtags"
+            widget: "list"
+            hint: "Incluir el # al inicio"
+            field: { label: "Hashtag", name: "hashtag", widget: "string" }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        required: false
+        fields:
+          - { label: "Título SEO", name: "title", widget: "string", required: false }
+          - { label: "Descripción SEO", name: "description", widget: "text", required: false }
+          - { label: "Imagen OG", name: "ogImage", widget: "image", required: false }
+          - label: "Keywords"
+            name: "keywords"
+            widget: "list"
+            required: false
+            field: { label: "Keyword", name: "keyword", widget: "string" }
+          - { label: "URL canónica", name: "canonical", widget: "string", required: false }
+
+  # ===== INTEGRANTES =====
+  - name: "integrantes"
+    label: "Integrantes"
+    files:
+      - name: "miembros"
+        label: "Miembros de la banda"
+        file: "src/content/integrantes.yaml"
+        fields:
+          - label: "Integrantes"
+            name: "members"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.instrument}}"
+            fields:
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Instrumento", name: "instrument", widget: "string" }
+              - { label: "Foto", name: "image", widget: "image" }
+
+  # ===== REPERTORIO =====
+  - name: "repertorio"
+    label: "Repertorio"
+    files:
+      - name: "canciones"
+        label: "Canciones por género"
+        file: "src/content/repertorio.yaml"
+        fields:
+          - label: "Salsa"
+            name: "salsa"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+          - label: "Merengue"
+            name: "merengue"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+          - label: "Cumbia"
+            name: "cumbia"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+          - label: "Bolero"
+            name: "bolero"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+          - label: "Bachata"
+            name: "bachata"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+          - label: "Paso Doble"
+            name: "paso-doble"
+            widget: "list"
+            summary: "{{fields.title}} - {{fields.artist}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Artista", name: "artist", widget: "string" }
+
+  # ===== GÉNEROS =====
+  - name: "generos"
+    label: "Géneros musicales"
+    files:
+      - name: "lista-generos"
+        label: "Lista de géneros"
+        file: "src/content/generos.yaml"
+        fields:
+          - label: "Géneros"
+            name: "genres"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "Identificador único (ej: salsa, merengue)" }
+              - { label: "Nombre", name: "name", widget: "string", hint: "Nombre para mostrar" }
+
+  # ===== RESEÑAS =====
+  - name: "resenas"
+    label: "Reseñas"
+    files:
+      - name: "testimonios"
+        label: "Testimonios de clientes"
+        file: "src/content/resenas.yaml"
+        fields:
+          - label: "Reseñas"
+            name: "reviews"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.event}}"
+            fields:
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Tipo de evento", name: "event", widget: "string" }
+              - { label: "Comentario", name: "comment", widget: "text" }
+              - { label: "Calificación", name: "rating", widget: "number", min: 1, max: 5 }

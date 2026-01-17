@@ -1,0 +1,17 @@
+reviews:
+  - name: "María González"
+    event: "Boda"
+    comment: "¡Increíble actuación! Florencia Orquesta Band hizo de nuestra boda un evento inolvidable. Todos nuestros invitados quedaron encantados."
+    rating: 5
+  - name: "Carlos Mendoza"
+    event: "Gala Corporativa"
+    comment: "Profesionales de principio a fin. Su repertorio variado mantuvo a todos en la pista de baile toda la noche. Altamente recomendados."
+    rating: 5
+  - name: "Ana Luisa Pérez"
+    event: "Fiesta de Cumpleaños"
+    comment: "La energía que trajeron a mi fiesta fue espectacular. Su música atravesó generaciones y todos lo pasamos en grande."
+    rating: 5
+  - name: "Roberto Sánchez"
+    event: "Evento Benéfico"
+    comment: "Su música elevó nuestro evento a otro nivel. La calidad de su interpretación y su profesionalismo son excepcionales."
+    rating: 5

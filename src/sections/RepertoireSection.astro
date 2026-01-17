@@ -1,6 +1,7 @@
 ---
 import { RepertoireCaroussel } from "@/components/RepertoireCaroussel";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
+import { repertoire, genres } from "@/data/data";
 ---
 
 <section
@@ -15,7 +16,7 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
   <div class="container mx-auto px-4 relative z-10">
     <SectionTitle>Nuestro Repertorio</SectionTitle>
 
-    <RepertoireCaroussel client:visible />
+    <RepertoireCaroussel repertoire={repertoire} genres={genres} client:visible />
 
     {/* Texto descriptivo */}
     <p class="text-center text-gray-400 mt-8 max-w-2xl mx-auto">

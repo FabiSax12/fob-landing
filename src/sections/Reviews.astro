@@ -1,6 +1,7 @@
 ---
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
+import { reviews } from "@/data/data";
 ---
 
 <section
@@ -12,6 +13,6 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
   </div>
   <div class="container mx-auto px-4 relative z-10">
     <SectionTitle>Lo Que Dicen Nuestros Clientes</SectionTitle>
-    <ReviewsCarousel client:visible />
+    <ReviewsCarousel reviews={reviews} client:visible />
   </div>
 </section>

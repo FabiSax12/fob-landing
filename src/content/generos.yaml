@@ -1,0 +1,13 @@
+genres:
+  - id: "salsa"
+    name: "Salsa"
+  - id: "merengue"
+    name: "Merengue"
+  - id: "cumbia"
+    name: "Cumbia"
+  - id: "bolero"
+    name: "Bolero"
+  - id: "bachata"
+    name: "Bachata"
+  - id: "paso-doble"
+    name: "Paso Doble"

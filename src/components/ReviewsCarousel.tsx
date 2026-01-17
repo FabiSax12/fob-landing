@@ -1,9 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Star } from "lucide-react"
-import { reviews } from "@/data/data"
 
-export const ReviewsCarousel = () => {
+interface Review {
+  name: string
+  event: string
+  comment: string
+  rating: number
+}
+
+interface ReviewsCarouselProps {
+  reviews: Review[]
+}
+
+export const ReviewsCarousel = ({ reviews }: ReviewsCarouselProps) => {
   return <Carousel
     opts={{
       align: "start",

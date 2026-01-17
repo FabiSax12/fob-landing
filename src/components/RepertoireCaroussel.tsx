@@ -1,9 +1,23 @@
 import { useState } from "react"
 import { MusicCarousel } from "@/components/MusicCarousel"
 import { cn } from "@/lib/utils"
-import { repertoire, genres } from "@/data/data"
 
-export function RepertoireCaroussel() {
+interface Genre {
+  id: string
+  name: string
+}
+
+interface Song {
+  title: string
+  artist: string
+}
+
+interface RepertoireCarousselProps {
+  repertoire: Record<string, Song[]>
+  genres: Genre[]
+}
+
+export function RepertoireCaroussel({ repertoire, genres }: RepertoireCarousselProps) {
   const [activeGenre, setActiveGenre] = useState("salsa")
 
   return <>
@@ -45,9 +59,7 @@ export function RepertoireCaroussel() {
       <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black to-transparent z-10"></div>
 
       {/* Carrusel */}
-      <MusicCarousel songs={repertoire[activeGenre as keyof typeof repertoire]} className="px-10" />
+      <MusicCarousel songs={repertoire[activeGenre] || []} className="px-10" />
     </div>
   </>
 }
-
-
