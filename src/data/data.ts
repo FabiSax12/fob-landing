@@ -3,6 +3,78 @@ import type { Event } from "@/types/envent";
 
 export const events: Event[] = [
   {
+    date: "2026-01-25",
+    name: "Gran Baile - El Protrero, Pital",
+    location: {
+      name: "El Potrero, Pital",
+      address: "Pital, San Carlos, Alajuela",
+      src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d502342.12780058966!2d-84.64285875616939!3d10.377989050635094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa07f0049cee62f%3A0x7eb5ea781d474d2d!2sEl%20potrero%20San%20Carlos!5e0!3m2!1ses!2scr!4v1768622769908!5m2!1ses!2scr"
+    },
+    type: "Publico",
+    description: "Gran baile en El Potrero, bar-restaurante y salón bailable en Pital. Una tarde de música en vivo y diversión con Florencia Orquesta Band.",
+    time: {
+      start: "16:00",
+      concert: "16:00",
+      end: "19:30"
+    },
+    ticket: {
+      regular: {
+        price: "₡5.000"
+      },
+      type: "Taquilla"
+    },
+    seo: {
+      title: "Gran Baile con Florencia Orquesta Band | 25 Ene 2026 | El Potrero, Pital",
+      description: "Disfruta del gran baile el 25 de enero de 2026 en El Potrero, bar-restaurante y salón bailable en Pital. Florencia Orquesta Band en vivo desde las 16:00. Entrada ₡5.000 en taquilla. ¡No te lo pierdas!",
+      keywords: [
+        "baile Pital enero 2026",
+        "Florencia Orquesta Band El Potrero 2026",
+        "baile El Potrero Pital",
+        "baile 25 enero El Potrero",
+
+        "dónde hay bailes en Pital San Carlos",
+        "baile con orquesta en vivo Pital",
+        "qué hacer en Pital 25 enero 2026",
+        "eventos públicos Pital Alajuela",
+
+        "Florencia Orquesta Band en vivo",
+        "concierto Florencia Orquesta Band enero",
+        "presentaciones Florencia Orquesta Band 2026",
+
+        "El Potrero Pital eventos",
+        "El Potrero bar restaurante Pital",
+        "salón bailable Pital San Carlos",
+        "eventos Pital San Carlos",
+
+        "baile público Pital",
+        "música en vivo Pital",
+        "fiesta Pital Zona Norte Costa Rica",
+
+        "eventos San Carlos Alajuela enero",
+        "bailes Zona Norte Costa Rica 2026",
+        "entretenimiento Pital San Carlos"
+      ],
+      canonical: "https://www.florenciaorquestaband.com/eventos/gran-baile-el-potrero-pital-2026-01-25",
+      og: {
+        type: "event",
+        locale: "es_CR",
+        site_name: "Florencia Orquesta Band"
+      }
+    },
+    social: {
+      hashtags: [
+        "#GranBaile",
+        "#FlorenciaOrquestaBand",
+        "#ElPotrero",
+        "#Pital",
+        "#ZonaNorte",
+        "#CostaRica",
+        "#MúsicaEnVivo",
+        "#SanCarlos"
+      ]
+    }
+  },
+  {
     date: "2025-10-18",
     name: "Baile Benéfico Solidario - Florencia",
     location: {
@@ -322,11 +394,11 @@ export const members = [
     instrument: "Trombón",
     image: "/integrantes/johan-roman_landscape.webp",
   },
-  {
-    name: "Joseph Barquero",
-    instrument: "Timbales",
-    image: "/integrantes/joseph-barquero_landscape.webp",
-  },
+  // {
+  //   name: "Diego Barquero",
+  //   instrument: "Timbales",
+  //   image: "/integrantes/diego_landscape.webp",
+  // },
   {
     name: "Kike Obando",
     instrument: "Congas",

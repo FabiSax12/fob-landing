@@ -21,7 +21,7 @@ export const EventCard = ({ date, name, location, time, ticket, type }: Props) =
     >
       <div
         className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-      ></div>
+      />
       {/* Badge de tipo de evento (Público/Privado) */}
       {/* <span
         className={`absolute top-3 right-3 z-20 px-3 py-1 rounded-full text-xs font-semibold ${
@@ -38,7 +38,7 @@ export const EventCard = ({ date, name, location, time, ticket, type }: Props) =
         <p
           className={`
             text-3xl font-serif mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500
-            ${hasEventPassed ? "line-through" : "line-through"}
+            ${hasEventPassed ? "line-through" : null}
           `}
         >
           {formattedDate}

@@ -11,11 +11,21 @@ import SectionTitle from "@/components/ui/SectionTitle.astro";
     <SectionTitle>Próximos Eventos</SectionTitle>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
-        events.map((event) => (
-          <a href={`/evento/${event.name.replace(/\s+/g, "-")}`}>
-            <EventCard client:visible {...event} />
-          </a>
-        ))
+        events
+          .filter((event) => {
+            const eventDate = new Date(event.date);
+
+            // 6 meses de antiguedad y todos los del futuro
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+
+            return eventDate >= sixMonthsAgo;
+          })
+          .map((event) => (
+            <a href={`/evento/${event.name.replace(/\s+/g, "-")}`}>
+              <EventCard client:visible {...event} />
+            </a>
+          ))
       }
     </div>
   </div>
