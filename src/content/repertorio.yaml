@@ -15,6 +15,8 @@ salsa:
     artist: Roberto Roena
   - title: De mi enamorate
     artist: Zarella
+  - title: Tu amor me hace bien
+    artist: Marc Anthony
 merengue:
   - title: Yo me siento enamorado
     artist: Josie Esteban
@@ -30,6 +32,10 @@ merengue:
     artist: Elvis Crespo
   - title: Nadie se muere
     artist: La Makina
+  - title: La travesía
+    artist: Juan Luis Guerra
+  - title: Entre tu cuerpo y el mio
+    artist: Milly Quezada
 cumbia:
   - title: Que bello
     artist: La Sonora Dinamita
