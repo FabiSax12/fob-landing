@@ -1,37 +1,39 @@
 ---
 import { Image } from "astro:assets";
 
-const { image, name, instrument, bio } = Astro.props;
+const { image, name, instrument } = Astro.props;
 ---
 
-<div class="group relative">
-  <div
-    class="relative overflow-hidden rounded-lg mb-4 bg-zinc-900 max-w-[300px]"
-  >
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-orange-500/20 to-red-500/20 opacity-0 group-hover:opacity-100 transition-all duration-500"
-    >
-    </div>
+<article class="group member-card reveal">
+  <div class="relative overflow-hidden mb-4" style="border-radius: 2px;">
     <Image
       src={image || "/placeholder.svg"}
       alt={name}
-      width={300}
-      height={200}
+      width={320}
+      height={420}
       format="webp"
       quality={80}
       loading="lazy"
-      sizes={"(max-width: 300px) 100vw, 300px"}
-      class="transform group-hover:scale-105 transition-transform duration-500 object-cover bg-center aspect-video"
+      sizes="(max-width: 640px) 100vw, 320px"
+      class="w-full aspect-[3/4] object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.04]"
     />
+    <!-- Subtle hover overlay — not a gradient stripe, just a tint -->
+    <div
+      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      style="background: oklch(0.72 0.170 50 / 0.08);"
+    >
+    </div>
   </div>
-  <h3
-    class="text-2xl font-semibold mb-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500"
-  >
-    {name}
-  </h3>
-  <p
-    class="text-xl text-gray-400 group-hover:text-orange-400 transition-colors"
-  >
-    {instrument}
-  </p>
-</div>
+
+  <div class="px-1">
+    <h3 class="font-serif text-fob-text text-xl leading-tight mb-1">
+      {name}
+    </h3>
+    <p
+      class="font-sans text-fob-subtle text-sm tracking-wide uppercase"
+      style="font-size: 0.75rem; letter-spacing: 0.08em;"
+    >
+      {instrument}
+    </p>
+  </div>
+</article>

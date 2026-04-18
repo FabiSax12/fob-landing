@@ -1,7 +1,13 @@
 ---
-import TextGradient from "./TextGradient.astro";
+const { class: className } = Astro.props;
 ---
 
-<h2 class="text-4xl md:text-5xl font-serif text-center mb-12">
-  <TextGradient isLong isAnimated> <slot /> </TextGradient>
-</h2>
+<header class:list={["mb-16 reveal", className]}>
+  <h2
+    class="font-serif text-fob-text tracking-tight leading-tight"
+    style="font-size: clamp(1.8rem, 4vw, 2.8rem);"
+  >
+    <slot />
+  </h2>
+  <div class="mt-4 h-px w-14 bg-fob-amber"></div>
+</header>

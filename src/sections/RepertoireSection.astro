@@ -5,24 +5,80 @@ import { repertoire, genres } from "@/data/data";
 ---
 
 <section
-  class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden"
+  id="repertorio"
+  class="w-full py-24 relative overflow-hidden"
+  style="background: oklch(0.11 0.010 50);"
 >
-  {/* Efectos de fondo */}
-  <div
-    class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,rgba(255,165,0,0.2),transparent_50%)]"
-  >
-  </div>
-
-  <div class="container mx-auto px-4 relative z-10">
+  <div class="container mx-auto px-6 lg:px-12">
     <SectionTitle>Nuestro Repertorio</SectionTitle>
 
-    <RepertoireCaroussel repertoire={repertoire} genres={genres} client:visible />
+    <!--
+      RepertoireCaroussel maneja la selección de géneros internamente (React state).
+      El CSS de .genre-btn está aquí para que sea compartido por los botones React.
+    -->
+    <div class="reveal reveal-delay-2">
+      <RepertoireCaroussel repertoire={repertoire} genres={genres} client:visible />
+    </div>
 
-    {/* Texto descriptivo */}
-    <p class="text-center text-gray-400 mt-8 max-w-2xl mx-auto">
-      Nuestro extenso repertorio abarca los mejores clásicos y éxitos
-      contemporáneos de la música latina. Adaptamos nuestras interpretaciones al
-      estilo y ambiente de su evento.
+    <p
+      class="font-sans mt-10 reveal reveal-delay-3"
+      style="
+        font-size: 0.875rem;
+        color: oklch(0.42 0.008 55);
+        max-width: 52ch;
+        line-height: 1.7;
+      "
+    >
+      Clásicos y éxitos contemporáneos de la música latina. Adaptamos cada
+      interpretación al estilo y ambiente de su evento.
     </p>
   </div>
 </section>
+
+<style>
+  /* Shared genre button styles — applied by RepertoireCaroussel React buttons */
+  :global(.genre-nav) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid oklch(0.22 0.016 50);
+    margin-bottom: 2rem;
+  }
+
+  :global(.genre-btn) {
+    background: transparent;
+    border: none;
+    padding: 0.25rem 0;
+    cursor: pointer;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: oklch(0.42 0.008 55);
+    position: relative;
+    transition: color 0.25s ease;
+    letter-spacing: -0.01em;
+    font-family: var(--font-serif, Georgia, serif);
+  }
+
+  :global(.genre-btn)::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: oklch(0.83 0.155 72);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  :global(.genre-btn:hover) {
+    color: oklch(0.94 0.010 75);
+  }
+
+  :global(.genre-btn[aria-selected="true"]) {
+    color: oklch(0.83 0.155 72);
+  }
+
+  :global(.genre-btn[aria-selected="true"])::after {
+    width: 100%;
+  }
+</style>

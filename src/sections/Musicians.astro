@@ -1,24 +1,58 @@
 ---
 import BandMemberCard from "@/components/BandMemberCard.astro";
-import TextGradient from "@/components/ui/TextGradient.astro";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
 import { members } from "@/data/data";
 ---
 
 <section
-  class="w-full py-20 bg-gradient-to-b from-black to-zinc-900 relative overflow-hidden"
+  id="musicos"
+  class="w-full py-24 relative overflow-hidden"
+  style="background: oklch(0.11 0.010 50);"
 >
-  <div class="container mx-auto px-4 relative z-10">
-    <h2 class="text-4xl md:text-5xl font-serif text-center mb-12">
-      <TextGradient isLong isAnimated> Nuestros Músicos </TextGradient>
-    </h2>
-    <div
-      class="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-    >
+  <div class="container mx-auto px-6 lg:px-12">
+    <SectionTitle>Nuestros Músicos</SectionTitle>
+
+    <!--
+      Staggered grid: los músicos se distribuyen en columnas de ancho variable.
+      Índices pares levemente desplazados hacia abajo — rompe la monotonía sin cambiar los datos.
+    -->
+    <div class="musicians-grid">
       {
         members.map((member, index) => (
-          <BandMemberCard key={index} {...member} />
+          <div
+            class:list={[
+              "musician-item",
+              `reveal reveal-delay-${Math.min((index % 4) + 1, 8)}`,
+              index % 2 === 1 ? "musician-offset" : "",
+            ]}
+          >
+            <BandMemberCard {...member} />
+          </div>
         ))
       }
     </div>
   </div>
 </section>
+
+<style>
+  .musicians-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem 2.5rem;
+    align-items: start;
+  }
+
+  .musician-offset {
+    padding-top: 2.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .musicians-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .musician-offset {
+      padding-top: 0;
+    }
+  }
+</style>
