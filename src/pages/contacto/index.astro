@@ -1,7 +1,5 @@
 ---
 import ContactForm from "@/components/ContactForm.astro";
-import SectionTitle from "@/components/ui/SectionTitle.astro";
-import TextGradient from "@/components/ui/TextGradient.astro";
 import Layout from "@/layouts/Layout.astro";
 import { MessageSquareShare } from "lucide-react";
 ---
@@ -12,61 +10,68 @@ import { MessageSquareShare } from "lucide-react";
   ogImage="https://florenciaorquestaband.com/hero.png"
   keywords={`
     Contactar Florencia Orquesta Band,
-    Contacto Orquesta Florencia Band,
-    Contratar Florencia Orquesta Band,
-    Cotización Florencia Orquesta Band,
-    Información Florencia Orquesta Band,
     Contratar orquesta San Carlos,
     Cotización orquesta Alajuela,
     Contratar música en vivo Costa Rica,
-    Reservar orquesta para evento,
-    Teléfono Florencia Orquesta Band,
-    Correo electrónico Florencia Orquesta Band,
-    WhatsApp Florencia Orquesta Band,
-    Formulario de contacto orquesta,
-    Disponibilidad Florencia Orquesta Band,
-    Preguntas frecuentes orquesta,
-    Contratar banda para boda Costa Rica,
-    Cotización música para fiesta San Carlos,
-    Presupuesto orquesta evento corporativo,
-    Hablar con la orquesta,
-    Pedir cotización orquesta,
-    Consultar disponibilidad banda musical,
-    Hablar con Florencia Orquesta Band,
-    Cómo contratar la orquesta,
-    Solicitar información para evento,
-    Enviar mensaje a Florencia Orquesta Band
+    Reservar orquesta para evento
   `}
 >
-  <section
-    class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black text-white"
+  <main
+    class="w-full min-h-screen py-28 px-6 lg:px-12"
+    style="background: oklch(0.07 0.007 50);"
   >
-    <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-serif text-center mb-12">
-        <TextGradient isLong isAnimated>Contacto</TextGradient>
-      </h1>
+    <div class="container mx-auto max-w-3xl">
+      <!-- Heading -->
+      <header class="mb-14">
+        <h1
+          class="font-serif leading-tight"
+          style="font-size: clamp(2rem, 5vw, 3.2rem); color: oklch(0.83 0.155 72);"
+        >
+          Contacto
+        </h1>
+        <div class="mt-4 h-px w-16" style="background: oklch(0.72 0.170 50);"></div>
+      </header>
 
-      <p class="text-center text-gray-400 mb-8 max-w-2xl mx-auto">
-        Puedes contactar al <TextGradient>Director</TextGradient> de la Orquesta,
-        el maestro <TextGradient>Julio Salas</TextGradient>, a través de su
-        número de WhatsApp, o también, llenando el formulario y te responderemos
-        lo más antes posible. Puedes cotizar tu evento con nosotros sin ningún
-        compromiso, estaremos encantados de ayudarte.
+      <!-- Copy -->
+      <p
+        class="font-sans mb-10 leading-relaxed"
+        style="font-size: 0.95rem; color: oklch(0.67 0.010 65); max-width: 54ch;"
+      >
+        Podés contactar al director de la orquesta, el maestro
+        <strong style="color: oklch(0.83 0.155 72); font-weight: 500;">Julio Salas</strong>,
+        directamente por WhatsApp, o completar el formulario y te respondemos a la brevedad.
+        Sin compromiso.
       </p>
 
-      <!-- Información de contacto -->
-      <div class="text-center mb-12">
+      <!-- WhatsApp CTA -->
+      <div class="mb-14">
         <a
           href="https://wa.me/+50688487681"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white text-lg font-medium shadow-lg hover:scale-105 transition-transform"
+          class="inline-flex items-center gap-3 px-6 py-3 font-sans font-medium transition-all duration-300"
+          style="
+            font-size: 0.9rem;
+            color: oklch(0.83 0.155 72);
+            border: 1px solid oklch(0.72 0.170 50 / 0.4);
+            border-radius: 2px;
+          "
+          onmouseover="this.style.background='oklch(0.72 0.170 50 / 0.1)'; this.style.borderColor='oklch(0.72 0.170 50 / 0.8)';"
+          onmouseout="this.style.background='transparent'; this.style.borderColor='oklch(0.72 0.170 50 / 0.4)';"
         >
-          <MessageSquareShare className="w-5 h-5" />
-          Julio Salas
+          <MessageSquareShare className="w-4 h-4" />
+          Julio Salas — WhatsApp
         </a>
       </div>
+
+      <!-- Divider -->
+      <div
+        class="mb-14"
+        style="height: 1px; background: oklch(0.22 0.016 50);"
+      ></div>
+
+      <!-- Form -->
       <ContactForm />
     </div>
-  </section>
+  </main>
 </Layout>

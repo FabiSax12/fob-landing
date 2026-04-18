@@ -1,7 +1,7 @@
 members:
   - name: Julio Salas
     instrument: Director y Piano
-    image: /integrantes/julio-salas_landscape.webp
+    image: /integrantes/julio-salas_portrait.webp
   - name: Ailyn Salas
     instrument: Voz
     image: /integrantes/aylin-salas.webp
@@ -10,7 +10,7 @@ members:
     image: /integrantes/keilyn-mora_landscape.jpg
   - name: Anthony Lumbi
     instrument: Voz
-    image: /integrantes/anthony-lumbi_landscape.webp
+    image: /integrantes/anthony-lumbi_portrait.webp
   - name: Tomás Vásquez
     instrument: Bajo
     image: /integrantes/tomas-vasquez.webp

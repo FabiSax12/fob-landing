@@ -1,48 +1,195 @@
 ---
-import TextGradient from "@/components/ui/TextGradient.astro";
-import ThemedButton from "@/components/ui/ThemedButton.astro";
 import { Image } from "astro:assets";
 ---
 
-<section class="w-full h-screen relative overflow-hidden">
-  <div
-    class="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black"
-  >
-    <div
-      class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_50%,rgba(255,165,0,0.3),rgba(255,69,0,0.2),transparent_50%)] animate-pulse"
+<section class="hero relative w-full h-screen min-h-[600px] overflow-hidden">
+  <!-- Media layer — swap <img> for <video> when ready -->
+  <figure class="hero-media absolute inset-0 m-0">
+    <Image
+      src="/content/group-pictures/ElEncuentro.jpeg"
+      alt="Florencia Orquesta Band en vivo"
+      width={1920}
+      height={1080}
+      loading="eager"
+      format="webp"
+      quality={85}
+      class="w-full h-full object-cover object-center"
+    />
+    <!--
+    VIDEO SLOT — uncomment when video is available:
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="w-full h-full object-cover object-center"
     >
-    </div>
+      <source src="/hero-video.mp4" type="video/mp4" />
+    </video>
+    -->
+  </figure>
+
+  <!-- Overlay: deep amber-tinted darkness, stronger at top and bottom -->
+  <div
+    class="hero-overlay absolute inset-0"
+    style="
+      background:
+        linear-gradient(
+          to bottom,
+          oklch(0.07 0.007 50 / 0.95) 0%,
+          oklch(0.07 0.007 50 / 0.65) 40%,
+          oklch(0.07 0.007 50 / 0.65) 60%,
+          oklch(0.07 0.007 50 / 1) 100%
+        );
+    "
+  >
   </div>
 
+  <!-- Content -->
   <div
-    class="relative z-10 container mx-auto flex flex-col items-center justify-center h-full px-4 py-20"
+    class="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center"
   >
-    <Image
-      src="/logo_simple.webp"
-      alt="Florencia Orquesta Band"
-      width={800}
-      height={400}
-      loading="eager"
-      sizes={"(max-width: 800px) 100vw, 800px"}
-      format="webp"
-      quality={80}
-      class="mx-auto animate-float"
-    />
-    <h1 class="text-2xl md:text-3xl font-bold m-0">
-      <TextGradient isLong>Florencia Orquesta Band</TextGradient>
-    </h1>
-    <p class="text-lg md:text-2xl mt-4 mb-12 text-center">
-      <TextGradient isLong isAnimated className="font-light">
-        Creando momentos a través de la música
-      </TextGradient>
+    <!-- Logo -->
+    <div
+      class="hero-logo mb-8 opacity-0 animate-float"
+      style="animation-delay: 0.1s;"
+    >
+      <Image
+        src="/logo_simple.webp"
+        alt="Florencia Orquesta Band"
+        width={520}
+        height={260}
+        loading="eager"
+        format="webp"
+        quality={90}
+        class="mx-auto w-[min(520px,80vw)] h-auto"
+      />
+    </div>
+
+    <!-- Tagline -->
+    <p
+      class="hero-tagline font-serif text-fob-text/80 leading-relaxed max-w-lg opacity-0"
+      style="
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        font-style: italic;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+        animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+      "
+    >
+      Creando momentos a través de la música
     </p>
 
-    <ThemedButton href="/contacto">
-      <TextGradient
-        className="text-xl font-semibold group-hover:text-orange-400 font-sans"
+    <!-- Divider -->
+    <div
+      class="my-8 w-12 opacity-0"
+      style="
+        height: 1px;
+        background: oklch(0.72 0.170 50 / 0.6);
+        animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+      "
+    >
+    </div>
+
+    <!-- CTA -->
+    <a
+      href="#contacto"
+      class="hero-cta opacity-0 inline-flex items-center gap-3 px-8 py-3.5 font-sans font-medium tracking-wide text-fob-gold transition-all duration-300 ease-out"
+      style="
+        font-size: clamp(0.9rem, 1.5vw, 1rem);
+        border: 1px solid oklch(0.72 0.170 50 / 0.4);
+        border-radius: 2px;
+        animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+      "
+      onmouseover="this.style.background='oklch(0.72 0.170 50 / 0.12)'; this.style.borderColor='oklch(0.72 0.170 50 / 0.8)';"
+      onmouseout="this.style.background='transparent'; this.style.borderColor='oklch(0.72 0.170 50 / 0.4)';"
+    >
+      Reservá tu fecha
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        aria-hidden="true"
       >
-        Contáctanos
-      </TextGradient>
-    </ThemedButton>
+        <path
+          d="M3 8h10M9 4l4 4-4 4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </a>
   </div>
+
+  <!-- Scroll indicator -->
+  <button
+    class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-fob-muted hover:text-fob-subtle transition-colors duration-300 cursor-pointer bg-transparent border-0 opacity-0"
+    style="animation: hero-fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;"
+    onclick="document.getElementById('proximos-eventos')?.scrollIntoView({ behavior: 'smooth' })"
+    aria-label="Scroll hacia abajo"
+  >
+    <span
+      class="font-sans text-xs uppercase tracking-widest"
+      style="font-size: 0.65rem;"
+    >
+      Explorá
+    </span>
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      class="animate-bounce"
+      style="animation-duration: 2s;"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 7.5l5 5 5-5"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
 </section>
+
+<style>
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-logo {
+    animation:
+      hero-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+      float 6s ease-in-out 1.2s infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-logo,
+    .hero-tagline,
+    .hero-cta,
+    .scroll-indicator {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

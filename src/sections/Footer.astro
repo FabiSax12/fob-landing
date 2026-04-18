@@ -1,31 +1,59 @@
 ---
-import SocialMediaLink from "@/components/ui/SocialMediaLink.astro";
 ---
 
-<footer class="w-full py-8 bg-black relative overflow-hidden">
-  <div
-    class="absolute inset-0 opacity-30 bg-[radial-gradient(ellipse_at_bottom,rgba(255,165,0,0.2),transparent_50%)]"
-  >
-  </div>
-  <div class="container mx-auto text-center px-4 relative z-10">
-    <p
-      class="mb-4 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-lg"
-    >
-      Contáctenos para elevar su evento al siguiente nivel
-    </p>
-    <div class="flex justify-center space-x-4 mb-4">
-      <SocialMediaLink href="https://www.facebook.com/FlorenciaOrquestaBand/">
-        Facebook
-      </SocialMediaLink>
-      <SocialMediaLink href="https://www.instagram.com/florenciaorquestaband/">
-        Instagram
-      </SocialMediaLink>
-      <SocialMediaLink href="https://wa.me/50688487681">
-        WhatsApp
-      </SocialMediaLink>
+<footer
+  class="w-full py-12"
+  style="background: oklch(0.07 0.007 50); border-top: 1px solid oklch(0.22 0.016 50);"
+>
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+      <!-- Brand -->
+      <div>
+        <p class="font-serif" style="font-size: 1.1rem; color: oklch(0.83 0.155 72);">
+          Florencia Orquesta Band
+        </p>
+        <p class="font-sans mt-1" style="font-size: 0.78rem; color: oklch(0.42 0.008 55);">
+          San Carlos, Alajuela, Costa Rica
+        </p>
+      </div>
+
+      <!-- Links -->
+      <nav class="flex items-center gap-6" aria-label="Redes sociales">
+        <a
+          href="https://www.facebook.com/FlorenciaOrquestaBand/"
+          class="font-sans transition-colors duration-200 hover:text-fob-gold"
+          style="font-size: 0.82rem; color: oklch(0.42 0.008 55); letter-spacing: 0.04em;"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+        <a
+          href="https://www.instagram.com/florenciaorquestaband/"
+          class="font-sans transition-colors duration-200 hover:text-fob-gold"
+          style="font-size: 0.82rem; color: oklch(0.42 0.008 55); letter-spacing: 0.04em;"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
+        <a
+          href="https://wa.me/50688487681"
+          class="font-sans transition-colors duration-200 hover:text-fob-gold"
+          style="font-size: 0.82rem; color: oklch(0.42 0.008 55); letter-spacing: 0.04em;"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          WhatsApp
+        </a>
+      </nav>
     </div>
-    <p class="text-gray-600">
-      &copy; 2025 Florencia Orquesta Band. Todos los derechos reservados.
+
+    <p
+      class="font-sans mt-10"
+      style="font-size: 0.72rem; color: oklch(0.30 0.018 50);"
+    >
+      &copy; {new Date().getFullYear()} Florencia Orquesta Band. Todos los derechos reservados.
     </p>
   </div>
 </footer>
