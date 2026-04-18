@@ -1,0 +1,40 @@
+name: "Evento Municipalidad"
+date: "2025-05-11"
+type: "Publico"
+description: "Evento organizado por la Municipalidad de San Carlos."
+location:
+  name: "Ciudad Quesada"
+  src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1650.3551580010994!2d-84.43044642417614!3d10.32365349676287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa065f323684131%3A0x6717ec5665e83bc7!2sParque%20de%20Ciudad%20Quesada!5e0!3m2!1ses!2scr!4v1744169853346!5m2!1ses!2scr"
+time:
+  start: "18:00"
+  concert: "19:00"
+ticket:
+  type: "Entrada Libre"
+  regular:
+    price: "Gratis"
+social:
+  hashtags:
+    - "#EventoMunicipalidad"
+    - "#FlorenciaOrquestaBand"
+    - "#CiudadQuesada"
+    - "#SanCarlos"
+    - "#MúsicaEnVivo"
+    - "#CostaRica"
+seo:
+  title: "Evento Público Municipalidad San Carlos con Florencia Orquesta Band | Ciudad Quesada"
+  description: "Disfruta de Florencia Orquesta Band en el evento público organizado por la Municipalidad de San Carlos el 11 de mayo de 2025 en Ciudad Quesada."
+  canonical: "https://www.florenciaorquestaband.com/eventos/evento-municipalidad-ciudad-quesada-2025-05-11"
+  keywords:
+    - "Evento Municipalidad Ciudad Quesada"
+    - "Florencia Orquesta Band Ciudad Quesada"
+    - "Evento público San Carlos 11 mayo 2025"
+    - "Baile público Ciudad Quesada"
+    - "Concierto Florencia Orquesta Band Parque Ciudad Quesada"
+    - "Música en vivo Ciudad Quesada 11 mayo"
+    - "Evento Municipalidad de San Carlos"
+    - "Florencia Orquesta Band gratis Ciudad Quesada"
+    - "Qué hacer en Ciudad Quesada mayo 2025"
+    - "Fiesta pública San Carlos"
+    - "Presentación Florencia Orquesta Band Ciudad Quesada"
+    - "Orquesta en Ciudad Quesada evento público"
+    - "Banda musical San Carlos mayo"

@@ -1,61 +1,135 @@
 import type { Event } from "@/types/envent";
-import { Card, CardContent } from "./ui/card";
-import { Calendar, MapPin } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-interface Props extends Pick<Event, "date" | "name" | "location"> { }
+interface Props extends Pick<Event, "date" | "name" | "location" | "time" | "ticket" | "type"> {}
 
-export const EventCard = ({ date, name, location }: Props) => {
-  const eventDate = new Date(date);
+export const EventCard = ({ date, name, location, time, ticket, type }: Props) => {
+  const [year, month, day] = date.split("-").map(Number);
+  const eventDate = new Date(year, month - 1, day);
   const currentDate = new Date();
   const hasEventPassed = currentDate > eventDate;
-  const formattedDate = eventDate.toLocaleDateString("es", {
-    day: "numeric",
-    month: "long",
-  });
+
+  const dayNum = eventDate.toLocaleDateString("es-CR", { day: "numeric" });
+  const monthStr = eventDate.toLocaleDateString("es-CR", { month: "long" });
+  const yearStr = eventDate.toLocaleDateString("es-CR", { year: "numeric" });
 
   return (
-    <Card
-      className="group relative bg-zinc-900/50 backdrop-blur-sm border border-orange-500/10 hover:border-orange-500/50 transition-all duration-500 overflow-visible"
+    <article
+      className={cn(
+        "group relative py-8 transition-all duration-300",
+        "border-b border-fob-border last:border-b-0",
+        hasEventPassed && "opacity-50"
+      )}
+      style={{ borderColor: "oklch(0.22 0.016 50)" }}
     >
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-      ></div>
-      <CardContent className="p-6 relative z-10">
-        {/* <Icon className="w-6 h-6 text-orange-400 mb-4" name="lucide--calendar" /> */}
-        <Calendar className="w-6 h-6 text-orange-400 mb-4" />
-        <p
-          className={`
-            text-3xl font-serif mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500
-            ${hasEventPassed ? "line-through" : "line-through"}
-          `}
-        >
-          {formattedDate}
-        </p>
-        <h3
-          className="text-2xl font-semibold mb-2 text-white group-hover:text-orange-400 transition-colors"
-        >
-          {name}
-        </h3>
-        <div className="flex items-center text-gray-400 mb-4">
-          {/* <Icon className="w-4 h-4 mr-2" name="lucide--map-pin" /> */}
-          <MapPin className="w-4 h-4 mr-2" />
-          <p className="text-lg">{location.name}</p>
+      <div className="flex items-start gap-6">
+        {/* Editorial date block */}
+        <div className="flex-shrink-0 text-center min-w-[4rem]">
+          <span
+            className={cn("font-serif block leading-none", hasEventPassed && "line-through")}
+            style={{
+              fontSize: "clamp(2rem, 5vw, 3rem)",
+              color: "oklch(0.83 0.155 72)",
+              lineHeight: 1,
+            }}
+          >
+            {dayNum}
+          </span>
+          <span
+            className="font-sans uppercase block mt-1"
+            style={{
+              fontSize: "0.65rem",
+              letterSpacing: "0.1em",
+              color: "oklch(0.67 0.010 65)",
+            }}
+          >
+            {monthStr.slice(0, 3)}
+          </span>
+          <span
+            className="font-sans block"
+            style={{
+              fontSize: "0.65rem",
+              color: "oklch(0.42 0.008 55)",
+            }}
+          >
+            {yearStr}
+          </span>
         </div>
-        {hasEventPassed && (
-          <p className="text-sm text-red-500 font-medium absolute right-3 bottom-3">
-            Evento finalizado
+
+        {/* Event info */}
+        <div className="flex-1 min-w-0 pt-1">
+          <h3
+            className="font-serif leading-snug mb-1 transition-colors duration-300 group-hover:text-fob-gold"
+            style={{
+              fontSize: "clamp(1.1rem, 2vw, 1.3rem)",
+              color: "oklch(0.94 0.010 75)",
+            }}
+          >
+            {name}
+          </h3>
+
+          <p
+            className="font-sans mb-2"
+            style={{
+              fontSize: "0.875rem",
+              color: "oklch(0.67 0.010 65)",
+            }}
+          >
+            {location.name}
           </p>
-        )}
-        {
-          hasEventPassed && (
-            <span
-              className="absolute -top-5 font-serif right-4 capitalize text-3xl font-bold animate-pulse duration-3000 text-gradient"
+
+          {time?.start && (
+            <p
+              className="font-sans"
+              style={{
+                fontSize: "0.8rem",
+                color: "oklch(0.42 0.008 55)",
+              }}
             >
-              ¡GRACIAS!
-            </span>
-          )
-        }
-      </CardContent>
-    </Card>
+              {time.start}
+            </p>
+          )}
+
+          {ticket && (
+            <div className="mt-3 flex gap-2 flex-wrap">
+              {ticket.presale && (
+                <span
+                  className="inline-block px-2.5 py-0.5 font-sans text-xs font-medium"
+                  style={{
+                    background: "oklch(0.72 0.170 50 / 0.12)",
+                    color: "oklch(0.83 0.155 72)",
+                    border: "1px solid oklch(0.72 0.170 50 / 0.3)",
+                    borderRadius: "2px",
+                  }}
+                >
+                  Preventa · {ticket.presale.price}
+                </span>
+              )}
+              <span
+                className="inline-block px-2.5 py-0.5 font-sans text-xs"
+                style={{
+                  background: "oklch(0.16 0.013 50)",
+                  color: "oklch(0.67 0.010 65)",
+                  border: "1px solid oklch(0.22 0.016 50)",
+                  borderRadius: "2px",
+                }}
+              >
+                {ticket.regular.price}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {/* Passed indicator */}
+        {hasEventPassed && (
+          <div
+            className="flex-shrink-0 self-center font-serif italic"
+            style={{ fontSize: "0.85rem", color: "oklch(0.67 0.010 65)" }}
+          >
+            Gracias
+          </div>
+        )}
+      </div>
+    </article>
   );
 };

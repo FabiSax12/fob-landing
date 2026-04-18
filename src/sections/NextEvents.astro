@@ -2,21 +2,64 @@
 import { events } from "@/data/data";
 import { EventCard } from "../components/EventCard";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
+import ThemedButton from "@/components/ui/ThemedButton.astro";
 ---
 
 <section
-  class="w-full py-20 bg-gradient-to-b from-zinc-900 to-black relative overflow-hidden"
+  id="proximos-eventos"
+  class="w-full py-24 relative overflow-hidden"
+  style="background: oklch(0.07 0.007 50);"
 >
-  <div class="container mx-auto px-4 relative z-10">
-    <SectionTitle>Próximos Eventos</SectionTitle>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {
-        events.map((event) => (
-          <a href={`/evento/${event.name.replace(/\s+/g, "-")}`}>
-            <EventCard client:visible {...event} />
-          </a>
-        ))
-      }
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
+      <!-- Left: heading -->
+      <div class="lg:sticky lg:top-24">
+        <SectionTitle>Próximos Eventos</SectionTitle>
+        <p
+          class="font-sans mt-4 max-w-xs leading-relaxed reveal reveal-delay-2"
+          style="font-size: 0.9rem; color: oklch(0.67 0.010 65);"
+        >
+          Encontranos en vivo. Cada fecha es una noche distinta.
+        </p>
+        <div class="mt-8 reveal reveal-delay-3">
+          <ThemedButton href="/contacto">
+            Consultá disponibilidad
+          </ThemedButton>
+        </div>
+      </div>
+
+      <!-- Right: event list -->
+      <div class="reveal reveal-delay-2">
+        {
+          (() => {
+            const sixMonthsAgo = new Date();
+            sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+            const filtered = events.filter(
+              (e) => new Date(e.date) >= sixMonthsAgo
+            );
+
+            if (filtered.length === 0) {
+              return (
+                <div
+                  class="py-16 font-serif italic"
+                  style="color: oklch(0.42 0.008 55); font-size: 1.1rem;"
+                >
+                  Próximas fechas por confirmar.
+                </div>
+              );
+            }
+
+            return filtered.map((event) => (
+              <a
+                href={`/evento/${event.name.replace(/\s+/g, "-")}`}
+                class="block hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-fob-amber/50 rounded-sm"
+              >
+                <EventCard client:visible {...event} />
+              </a>
+            ));
+          })()
+        }
+      </div>
     </div>
   </div>
 </section>

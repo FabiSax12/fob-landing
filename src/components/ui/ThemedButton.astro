@@ -1,38 +1,28 @@
 ---
 import { cn } from "@/lib/utils";
 
-const { href = null, class: className } = Astro.props;
+const { href = null, type = "button", class: className, ...rest } = Astro.props;
+
+const base = `
+  inline-flex items-center justify-center gap-2
+  px-8 py-3 rounded-sm
+  border border-fob-amber/40 text-fob-gold
+  font-sans font-medium tracking-wide text-base
+  transition-all duration-300 ease-out
+  hover:border-fob-amber hover:bg-fob-amber/10
+  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fob-amber/50
+  cursor-pointer
+`;
 ---
 
 {
   href ? (
-    <a
-      href={href}
-      class={cn(
-        `inline-flex items-center justify-center h-11 rounded-md text-xl px-8 py-6 group relative overflow-hidden
-      bg-zinc-900/50 backdrop-blur-sm border border-orange-500/10 hover:border-orange-500/50 transition-all duration-500 cursor-pointer`,
-        className,
-      )}
-    >
+    <a href={href} class={cn(base, className)} {...rest}>
       <slot />
-      <div
-        class={`
-        absolute inset-0
-        bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10
-        opacity-0 group-hover:opacity-100 transition-opacity duration-500
-      `}
-      />
     </a>
   ) : (
-    <button
-      class={cn(
-        `inline-flex items-center justify-center h-11 rounded-md text-xl px-8 py-6 group relative overflow-hidden
-      bg-zinc-900/50 backdrop-blur-sm border border-orange-500/10 hover:border-orange-500/50 transition-all duration-500 cursor-pointer`,
-        className,
-      )}
-    >
+    <button type={type} class={cn(base, className)} {...rest}>
       <slot />
-      <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-orange-500/10 to-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </button>
   )
 }

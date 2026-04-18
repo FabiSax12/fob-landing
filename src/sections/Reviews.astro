@@ -1,17 +1,18 @@
 ---
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import SectionTitle from "@/components/ui/SectionTitle.astro";
+import { reviews } from "@/data/data";
 ---
 
 <section
-  class="w-full py-20 bg-gradient-to-b from-black to-zinc-900 relative overflow-hidden"
+  id="resenas"
+  class="w-full py-24 relative overflow-hidden"
+  style="background: oklch(0.07 0.007 50);"
 >
-  <div
-    class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,rgba(255,165,0,0.2),transparent_50%)]"
-  >
-  </div>
-  <div class="container mx-auto px-4 relative z-10">
-    <SectionTitle>Lo Que Dicen Nuestros Clientes</SectionTitle>
-    <ReviewsCarousel client:visible />
+  <div class="container mx-auto px-6 lg:px-12">
+    <SectionTitle>Lo que dicen</SectionTitle>
+    <div class="reveal reveal-delay-2">
+      <ReviewsCarousel reviews={reviews} client:visible />
+    </div>
   </div>
 </section>

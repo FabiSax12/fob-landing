@@ -5,13 +5,14 @@ import ReviewsSection from "@/sections/Reviews.astro";
 import Hero from "@/sections/Hero.astro";
 import NextEvents from "@/sections/NextEvents.astro";
 import Musicians from "@/sections/Musicians.astro";
+import ContactSection from "@/sections/ContactSection.astro";
 ---
 
 <Layout
-	title="Florencia Orquesta Band"
-	description="Florencia Orquesta Band - Disfruta de la mejor música en vivo y eventos bailables. Conoce más sobre nuestra banda y próximos conciertos."
-	ogImage="https://florenciaorquestaband.com/hero.png"
-	keywords={`
+  title="Florencia Orquesta Band"
+  description="Florencia Orquesta Band - Disfruta de la mejor música en vivo y eventos bailables. Conoce más sobre nuestra banda y próximos conciertos."
+  ogImage="https://florenciaorquestaband.com/hero.png"
+  keywords={`
 		Florencia Orquesta Band,Orquesta Florencia Band,Florencia Orquesta,Banda Florencia,Grupo Florencia Orquesta,FOB,
 		Orquesta,Banda musical,Grupo musical,Conjunto musical,Agrupación musical,Música en vivo,Música en directo,Show musical,Espectáculo musical,Entretenimiento musical,Amenización musical,
 		Salsa,Cumbia,Merengue,Música tropical,Música latina,Música bailable,Música para bailar,Bachata,Bolero,Son Cubano,Cha cha cha,Pasodoble,Música variada,Música de fiesta,Éxitos latinos,Clásicos tropicales,Música tropical bailable,Ritmos latinos,
@@ -22,11 +23,69 @@ import Musicians from "@/sections/Musicians.astro";
 		Contratar orquesta de salsa y merengue en Alajuela,Precio de banda musical para boda en San Carlos Costa Rica,Grupo musical bailable para fiesta de fin de año Heredia,Orquesta versátil para evento corporativo en Ciudad Quesada,Música en vivo para quinceaños San Ramón,Mejor orquesta tropical de la Zona Norte Costa Rica,Orquesta profesional para bodas en La Fortuna,Cuánto cuesta contratar Florencia Orquesta Band para una fiesta,Banda de cumbia y salsa para evento social en Grecia,Música latina en vivo para celebración en Palmares
 	`}
 >
-	<main class="flex min-h-screen flex-col items-center justify-between">
-		<Hero />
-		<NextEvents />
-		<Musicians />
-		<RepertoireSection />
-		<ReviewsSection />
-	</main>
+  <main>
+    <Hero />
+    <NextEvents />
+    <Musicians />
+    <RepertoireSection />
+    <ReviewsSection />
+    <ContactSection />
+  </main>
 </Layout>
+
+<!-- Scroll reveal: IntersectionObserver activates .reveal elements -->
+<script is:inline>
+  (function () {
+    if (typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    function attachObserver() {
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", attachObserver);
+    } else {
+      attachObserver();
+    }
+  })();
+</script>
+
+<!-- Genre tab switcher for RepertoireSection -->
+<script is:inline>
+  (function () {
+    function initGenreTabs() {
+      const buttons = document.querySelectorAll(".genre-btn");
+      if (!buttons.length) return;
+
+      const first = buttons[0];
+      if (first) first.classList.add("active");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initGenreTabs);
+    } else {
+      initGenreTabs();
+    }
+  })();
+</script>

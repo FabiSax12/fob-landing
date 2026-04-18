@@ -1,0 +1,201 @@
+---
+import ThemedButton from "@/components/ui/ThemedButton.astro";
+import SectionTitle from "@/components/ui/SectionTitle.astro";
+---
+
+<section
+  id="contacto"
+  class="w-full py-24 relative overflow-hidden"
+  style="background: oklch(0.11 0.010 50);"
+>
+  <div class="container mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
+      <!-- Left: copy -->
+      <div>
+        <SectionTitle>Reservá tu fecha</SectionTitle>
+        <p
+          class="font-sans mt-2 leading-relaxed reveal reveal-delay-2"
+          style="font-size: 0.95rem; color: oklch(0.67 0.010 65); max-width: 38ch;"
+        >
+          Contanos sobre tu evento y te respondemos a la brevedad. Sin compromiso.
+        </p>
+        <div
+          class="mt-10 flex flex-col gap-3 reveal reveal-delay-3"
+          style="font-size: 0.875rem; color: oklch(0.42 0.008 55);"
+        >
+          <a
+            href="https://wa.me/50688487681"
+            class="inline-flex items-center gap-2 font-sans transition-colors duration-200 hover:text-fob-gold"
+            style="color: inherit;"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L0 24l6.335-1.502A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.924 0-3.72-.523-5.254-1.431l-.376-.223-3.762.893.938-3.664-.245-.389A9.774 9.774 0 012.182 12c0-5.413 4.405-9.818 9.818-9.818 5.413 0 9.818 4.405 9.818 9.818 0 5.413-4.405 9.818-9.818 9.818z"/>
+            </svg>
+            +506 8848 7681
+          </a>
+          <a
+            href="https://www.instagram.com/florenciaorquestaband/"
+            class="inline-flex items-center gap-2 font-sans transition-colors duration-200 hover:text-fob-gold"
+            style="color: inherit;"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @florenciaorquestaband
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal reveal-delay-2">
+        <form
+          id="home-contact-form"
+          class="flex flex-col gap-5"
+          onsubmit="handleHomeSubmit(event)"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="form-field">
+              <label for="hc-name" class="form-label">Nombre</label>
+              <input
+                type="text"
+                id="hc-name"
+                name="name"
+                required
+                autocomplete="name"
+                class="form-input"
+                placeholder="Tu nombre"
+              />
+            </div>
+            <div class="form-field">
+              <label for="hc-date" class="form-label">Fecha del evento</label>
+              <input
+                type="date"
+                id="hc-date"
+                name="event_date"
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="hc-contact" class="form-label">WhatsApp o email</label>
+            <input
+              type="text"
+              id="hc-contact"
+              name="contact"
+              required
+              autocomplete="email"
+              class="form-input"
+              placeholder="Tu contacto"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="hc-message" class="form-label">Contanos sobre tu evento</label>
+            <textarea
+              id="hc-message"
+              name="message"
+              rows="4"
+              required
+              class="form-input resize-none"
+              placeholder="Tipo de evento, lugar, cantidad de personas..."
+            ></textarea>
+          </div>
+
+          <div class="flex items-center gap-4 mt-2">
+            <ThemedButton type="submit" class="form-submit-btn">
+              Enviar consulta
+            </ThemedButton>
+            <p
+              id="hc-success"
+              class="font-sans hidden"
+              style="font-size: 0.85rem; color: oklch(0.72 0.170 50);"
+            >
+              ¡Mensaje enviado! Te contactamos pronto.
+            </p>
+            <p
+              id="hc-error"
+              class="font-sans hidden"
+              style="font-size: 0.85rem; color: oklch(0.55 0.18 25);"
+            >
+              Error al enviar. Intentá de nuevo.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .form-label {
+    display: block;
+    font-family: var(--font-sans, system-ui);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: oklch(0.42 0.008 55);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input {
+    width: 100%;
+    background: oklch(0.07 0.007 50);
+    border: 1px solid oklch(0.22 0.016 50);
+    border-radius: 2px;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-sans, system-ui);
+    font-size: 0.9rem;
+    color: oklch(0.94 0.010 75);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: oklch(0.35 0.006 55);
+  }
+
+  .form-input:focus {
+    border-color: oklch(0.72 0.170 50 / 0.5);
+    box-shadow: 0 0 0 3px oklch(0.72 0.170 50 / 0.08);
+  }
+
+  /* Calendar input color fix */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.4);
+    cursor: pointer;
+  }
+</style>
+
+<script is:inline>
+  function handleHomeSubmit(event) {
+    event.preventDefault();
+    const form = document.querySelector("#home-contact-form");
+    const formData = new FormData(form);
+    const successEl = document.getElementById("hc-success");
+    const errorEl = document.getElementById("hc-error");
+
+    fetch("https://formspree.io/f/xblgqply", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    })
+      .then((res) => {
+        if (res.ok) {
+          successEl.classList.remove("hidden");
+          errorEl.classList.add("hidden");
+          form.reset();
+        } else {
+          errorEl.classList.remove("hidden");
+          successEl.classList.add("hidden");
+        }
+      })
+      .catch(() => {
+        errorEl.classList.remove("hidden");
+        successEl.classList.add("hidden");
+      });
+  }
+</script>
